@@ -2405,6 +2405,7 @@ body {
 }
 
 .cert-inner-border {
+    position: relative;
     border: 2px solid hsl(45, 100%, 30%);
     padding: 25px 20px;
     border-radius: var(--border-radius-sm);
@@ -2415,8 +2416,34 @@ body {
     background: radial-gradient(circle, #fffdf5 0%, #fff 100%);
 }
 
+.cert-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    opacity: 0.05; /* Super soft watermark, doesn't impede reading */
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cert-watermark img,
+.cert-watermark svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 .cert-header {
     margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
 }
 
 .cert-emblem {
@@ -3276,6 +3303,7 @@ body {
     }
 
     .cert-inner-border {
+        position: relative !important;
         border: 2px solid hsl(45, 100%, 30%) !important;
         padding: 8mm 6mm !important;
         border-radius: var(--border-radius-sm) !important;
@@ -3287,6 +3315,35 @@ body {
         height: 100% !important;
         background: radial-gradient(circle, #fffdf5 0%, #fff 100%) !important;
         box-sizing: border-box !important;
+    }
+
+    .cert-watermark {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100mm !important;
+        height: 100mm !important;
+        opacity: 0.04 !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        visibility: visible !important;
+    }
+
+    .cert-watermark * {
+        visibility: visible !important;
+    }
+
+    .cert-watermark img,
+    .cert-watermark svg {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
     }
 
     .cert-header {

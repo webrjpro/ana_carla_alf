@@ -2793,6 +2793,7 @@ class ArenaController {
         
         // Direct to final certificate screen
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
+        renderHeroIdentity("cert-watermark");
         Screens.show("screen-certificate");
     }
 
