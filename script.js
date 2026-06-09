@@ -1266,6 +1266,12 @@ const Screens = {
         document.getElementById("start-next-mission").innerText = progress.nextName;
         document.getElementById("start-next-mission-detail").innerText = progress.nextDetail;
 
+        // Toggle certificate shortcut button
+        const btnStartCert = document.getElementById("btn-start-certificate");
+        if (btnStartCert) {
+            btnStartCert.style.display = State.data.completedAll ? "block" : "none";
+        }
+
         if (State.data.characterSelected) {
             btnContinue.disabled = false;
             btnContinue.innerHTML = State.data.activeRun
@@ -1284,6 +1290,12 @@ const Screens = {
         document.getElementById("hud-player-name").innerText = State.data.playerName;
         document.getElementById("hud-coins").innerText = State.data.coins;
         document.getElementById("game-coins").innerText = State.data.coins;
+        
+        // Toggle map HUD certificate button
+        const btnMapCert = document.getElementById("btn-map-certificate");
+        if (btnMapCert) {
+            btnMapCert.style.display = State.data.completedAll ? "block" : "none";
+        }
         
         // Compute total stars
         const progress = getAdventureProgress();
@@ -2793,7 +2805,9 @@ class ArenaController {
         
         // Direct to final certificate screen
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
+        document.getElementById("cert-child-signature").innerText = State.data.playerName;
         renderHeroIdentity("cert-watermark");
+        renderHeroIdentity("cert-hero-portrait");
         Screens.show("screen-certificate");
     }
 
@@ -3051,6 +3065,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Certificate screen actions
+    const openCertificateScreen = () => {
+        AudioPlayer.playClick();
+        document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
+        document.getElementById("cert-child-signature").innerText = State.data.playerName;
+        renderHeroIdentity("cert-watermark");
+        renderHeroIdentity("cert-hero-portrait");
+        Screens.show("screen-certificate");
+    };
+
+    const btnStartCert = document.getElementById("btn-start-certificate");
+    if (btnStartCert) {
+        btnStartCert.addEventListener("click", openCertificateScreen);
+    }
+
+    const btnMapCert = document.getElementById("btn-map-certificate");
+    if (btnMapCert) {
+        btnMapCert.addEventListener("click", openCertificateScreen);
+    }
+
     document.getElementById("btn-cert-print").addEventListener("click", () => {
         AudioPlayer.playClick();
         window.print();
