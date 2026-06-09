@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Carlos Antonio de Oliveira Piquet">
     <meta name="developer" content="Carlos Antonio de Oliveira Piquet - carlospiquet.projetos@gmail.com">
-    <title>Tabuada Quest: O Reino dos Números</title>
+    <title>Alfabetização Quest: O Reino das Letras</title>
     <!-- Google Fonts for friendly, playful rounded typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,10 +28,10 @@
 
             <div class="start-layout">
                 <div class="logo-area">
-                    <div class="logo-badge">Aventura Matemática</div>
-                    <h1 class="game-title">Tabuada Quest</h1>
-                    <h2 class="game-subtitle">O Reino dos Números</h2>
-                    <p class="start-story">Liberte 8 reinos, recupere tesouros e derrote guardiões usando multiplicação.</p>
+                    <div class="logo-badge">Aventura das Letras</div>
+                    <h1 class="game-title">Alfabetização Quest</h1>
+                    <h2 class="game-subtitle">O Reino das Letras</h2>
+                    <p class="start-story">Liberte 8 reinos, recupere tesouros e derrote guardiões usando letras, sílabas e palavras.</p>
                     
                     <div class="start-quest-board">
                         <div class="quest-board-item">
@@ -56,8 +56,8 @@
 
                     <div class="start-next-mission">
                         <span class="mission-kicker">Próxima missão</span>
-                        <strong id="start-next-mission">Reino do Dobro</strong>
-                        <small id="start-next-mission-detail">Tabuada do 2 espera por você.</small>
+                        <strong id="start-next-mission">Reino das Vogais</strong>
+                        <small id="start-next-mission-detail">O Reino das Vogais espera por você.</small>
                     </div>
 
                     <div class="menu-buttons">
@@ -141,7 +141,7 @@
                     <div class="hud-avatar" id="map-avatar-preview"></div>
                     <div>
                         <span class="hud-name" id="hud-player-name">Nome</span>
-                        <span class="hud-title" id="hud-player-title">Iniciante</span>
+                        <span class="hud-title" id="hud-player-title">Iniciante do ABC</span>
                     </div>
                 </div>
                 <div class="hud-stats">
@@ -155,13 +155,13 @@
                 </div>
             </div>
 
-            <h2 class="map-title">O Reino dos Números</h2>
-            <p class="map-subtitle">Escolha um reino para desafiar a tabuada!</p>
+            <h2 class="map-title">O Reino das Letras</h2>
+            <p class="map-subtitle">Escolha um reino para desafiar as letras e sílabas!</p>
 
             <div class="map-questbar">
                 <div class="map-quest-main">
                     <span class="mission-kicker">Agora</span>
-                    <strong id="map-next-mission">Reino do Dobro</strong>
+                    <strong id="map-next-mission">Reino das Vogais</strong>
                     <small id="map-next-reward">Vença para ganhar a Espada de Luz.</small>
                 </div>
                 <div class="map-quest-progress">
@@ -175,75 +175,75 @@
             <div class="map-container">
                 <svg class="map-path-svg" id="map-path-lines"></svg>
                 <div class="map-nodes">
-                    <!-- Reino do 2 -->
+                    <!-- Reino das Vogais -->
                     <div class="map-node unlocked" data-level="2" id="node-2">
-                        <div class="node-icon">🌲</div>
+                        <div class="node-icon">🍎</div>
                         <div class="node-info">
-                            <span class="node-name">Reino do Dobro</span>
-                            <span class="node-tabuada">Tabuada do 2</span>
+                            <span class="node-name">Reino das Vogais</span>
+                            <span class="node-tabuada">Vogais (A, E, I, O, U)</span>
                         </div>
                         <div class="node-stars">⭐⭐⭐</div>
                     </div>
-                    <!-- Reino do 3 -->
+                    <!-- Reino do Alfabeto -->
                     <div class="map-node locked" data-level="3" id="node-3">
-                        <div class="node-icon">💎</div>
+                        <div class="node-icon">🔤</div>
                         <div class="node-info">
-                            <span class="node-name">Reino dos Triplos</span>
-                            <span class="node-tabuada">Tabuada do 3</span>
+                            <span class="node-name">Reino do Alfabeto</span>
+                            <span class="node-tabuada">Letras e Sons</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
-                    <!-- Fortaleza do 4 -->
+                    <!-- Fortaleza do Som Inicial -->
                     <div class="map-node locked" data-level="4" id="node-4">
-                        <div class="node-icon">🏰</div>
+                        <div class="node-icon">🔊</div>
                         <div class="node-info">
-                            <span class="node-name">Fortaleza do 4</span>
-                            <span class="node-tabuada">Tabuada do 4</span>
+                            <span class="node-name">Fortaleza do Som Inicial</span>
+                            <span class="node-tabuada">Sons Iniciais</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
-                    <!-- Ilha do 5 -->
+                    <!-- Ilha das Sílabas Iniciais -->
                     <div class="map-node locked" data-level="5" id="node-5">
-                        <div class="node-icon">🏴‍☠️</div>
+                        <div class="node-icon">🗣️</div>
                         <div class="node-info">
-                            <span class="node-name">Ilha do 5</span>
-                            <span class="node-tabuada">Tabuada do 5</span>
+                            <span class="node-name">Ilha das Sílabas Iniciais</span>
+                            <span class="node-tabuada">Sílabas Iniciais</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
-                    <!-- Caverna do 6 -->
+                    <!-- Caverna das Palavrinhas -->
                     <div class="map-node locked" data-level="6" id="node-6">
-                        <div class="node-icon">🌋</div>
+                        <div class="node-icon">🐱</div>
                         <div class="node-info">
-                            <span class="node-name">Caverna do 6</span>
-                            <span class="node-tabuada">Tabuada do 6</span>
+                            <span class="node-name">Caverna das Palavrinhas</span>
+                            <span class="node-tabuada">Formar Palavras</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
-                    <!-- Torre do 7 -->
+                    <!-- Torre das Rimas -->
                     <div class="map-node locked" data-level="7" id="node-7">
-                        <div class="node-icon">⚡</div>
+                        <div class="node-icon">🔔</div>
                         <div class="node-info">
-                            <span class="node-name">Torre do 7</span>
-                            <span class="node-tabuada">Tabuada do 7</span>
+                            <span class="node-name">Torre das Rimas</span>
+                            <span class="node-tabuada">Encontrar Rimas</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
-                    <!-- Labirinto do 8 -->
+                    <!-- Labirinto das Sílabas Finais -->
                     <div class="map-node locked" data-level="8" id="node-8">
                         <div class="node-icon">🌀</div>
                         <div class="node-info">
-                            <span class="node-name">Labirinto do 8</span>
-                            <span class="node-tabuada">Tabuada do 8</span>
+                            <span class="node-name">Labirinto das Sílabas Finais</span>
+                            <span class="node-tabuada">Sons Finais</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
-                    <!-- Castelo Final -->
+                    <!-- Castelo das Palavras -->
                     <div class="map-node locked" data-level="9" id="node-9">
                         <div class="node-icon">👑</div>
                         <div class="node-info">
-                            <span class="node-name">Castelo Final</span>
-                            <span class="node-tabuada">Tabuada do 9</span>
+                            <span class="node-name">Castelo das Palavras</span>
+                            <span class="node-tabuada">Completar Palavras</span>
                         </div>
                         <div class="node-stars"></div>
                     </div>
@@ -252,8 +252,8 @@
                     <div class="map-node locked special-node" id="node-arena">
                         <div class="node-icon">⚔️</div>
                         <div class="node-info">
-                            <span class="node-name">Arena dos Mestres</span>
-                            <span class="node-tabuada">Desafio Final Misturado</span>
+                            <span class="node-name">Desafio Final das Letras</span>
+                            <span class="node-tabuada">Desafio Final de Alfabetização</span>
                         </div>
                     </div>
                 </div>
@@ -270,8 +270,8 @@
                 <div class="game-hud-left">
                     <button id="btn-game-exit" class="btn btn-back-hud" title="Voltar ao Mapa">↩ Mapa</button>
                     <div class="game-reino-title">
-                        <span id="game-reino-icon">🌲</span>
-                        <h3 id="game-reino-name">Reino do Dobro</h3>
+                        <span id="game-reino-icon">🍎</span>
+                        <h3 id="game-reino-name">Reino das Vogais</h3>
                     </div>
                 </div>
                 
@@ -292,7 +292,7 @@
             <div class="game-mission-strip">
                 <div class="game-mission-copy">
                     <span class="mission-kicker" id="stage-kicker">Etapa 1 de 3</span>
-                    <strong id="stage-mission-text">Abra o portal combinando contas e resultados.</strong>
+                    <strong id="stage-mission-text">Combine as letras ou sílabas correspondentes.</strong>
                 </div>
                 <div class="game-mission-progress">
                     <span id="stage-progress-label">0/6 pares</span>
@@ -306,7 +306,7 @@
             <div id="game-stage-1" class="game-stage active">
                 <div class="stage-header">
                     <h4>Etapa 1: Encaixe Rápido</h4>
-                    <p>Leve cada conta ao portal do resultado correto.</p>
+                    <p>Combine as letras ou sílabas correspondentes nos portais.</p>
                 </div>
                 
                 <div class="match-container">
@@ -323,7 +323,7 @@
             <div id="game-stage-2" class="game-stage">
                 <div class="stage-header">
                     <h4>Etapa 2: Quebra-Cabeça da Imagem</h4>
-                    <p>Recupere as peças certas para revelar o monumento do reino.</p>
+                    <p>Associe as palavras e imagens corretas para revelar a imagem do reino.</p>
                 </div>
 
                 <div class="puzzle-layout">
@@ -349,7 +349,7 @@
             <div id="game-stage-3" class="game-stage">
                 <div class="stage-header">
                     <h4>Etapa 3: Batalha do Chefe!</h4>
-                    <p>Escolha o número que transforma a conta em ataque.</p>
+                    <p>Escolha a opção correta para atacar o monstro.</p>
                 </div>
 
                 <div class="boss-arena">
@@ -371,7 +371,7 @@
                         <div class="boss-dialogue" id="boss-dialogue-bubble">"Mostre-me do que é capaz!"</div>
                         
                         <div class="boss-attack-card" id="boss-attack-card">
-                            <div class="boss-equation" id="boss-equation">4 x 6 = ?</div>
+                            <div class="boss-equation" id="boss-equation">Qual letra falta?</div>
                             <div class="boss-timer-bar-container">
                                 <div class="boss-timer-bar" id="boss-timer-fill"></div>
                             </div>
@@ -379,10 +379,10 @@
 
                         <div class="boss-answers-grid" id="boss-answers-grid">
                             <!-- Multiple choice buttons -->
-                            <button class="btn btn-answer">12</button>
-                            <button class="btn btn-answer">24</button>
-                            <button class="btn btn-answer">18</button>
-                            <button class="btn btn-answer">30</button>
+                            <button class="btn btn-answer">A</button>
+                            <button class="btn btn-answer">E</button>
+                            <button class="btn btn-answer">I</button>
+                            <button class="btn btn-answer">O</button>
                         </div>
                     </div>
 
@@ -392,7 +392,7 @@
                             <div class="boss-health-bar-container">
                                 <div class="boss-health-bar" id="boss-health-fill" style="width: 100%;"></div>
                             </div>
-                            <span class="boss-battle-name" id="battle-boss-name">Guardião do 4</span>
+                            <span class="boss-battle-name" id="battle-boss-name">Monstro Come-Vogais</span>
                         </div>
                         <div class="battle-avatar-wrapper" id="battle-boss-avatar">
                             <!-- Boss SVG generated dynamically -->
@@ -406,7 +406,7 @@
                 <div class="modal-content text-center">
                     <div class="modal-header-icon">💡</div>
                     <h3>Dica de Mestre!</h3>
-                    <p id="hint-text">2 x 4 é o mesmo que 2 + 2 + 2 + 2. O resultado é 8.</p>
+                    <p id="hint-text">A palavra GATO começa com a sílaba GA. O resultado é GATO.</p>
                     <button id="btn-close-hint" class="btn btn-primary">Entendi!</button>
                 </div>
             </div>
@@ -430,7 +430,7 @@
             <div class="victory-card">
                 <div class="victory-shine"></div>
                 <h2 class="victory-title">Vitória Régia! 🎉</h2>
-                <h3 class="victory-subtitle" id="victory-kingdom-text">Você dominou a tabuada do 2!</h3>
+                <h3 class="victory-subtitle" id="victory-kingdom-text">Você dominou o Reino das Vogais!</h3>
                 
                 <div class="victory-stars-display" id="victory-stars">
                     <span class="star animate-star">⭐</span>
@@ -441,7 +441,7 @@
                 <div class="rewards-earned">
                     <div class="reward-box">
                         <div class="reward-icon" id="victory-recompensa-icon">🏅</div>
-                        <div class="reward-name" id="victory-recompensa-name">Medalha do Dobro</div>
+                        <div class="reward-name" id="victory-recompensa-name">Medalha das Vogais</div>
                         <p class="reward-type">Insígnia Real</p>
                     </div>
                     <div class="reward-box">
@@ -477,7 +477,7 @@
                     </div>
                     <div class="customizer-player-info">
                         <strong id="customizer-name">Aventureiro</strong>
-                        <span id="customizer-title" class="hud-title">Iniciante da Aritmética</span>
+                        <span id="customizer-title" class="hud-title">Iniciante do ABC</span>
                     </div>
                     
                     <div class="equipped-gear-list">
@@ -533,13 +533,13 @@
                 <div class="settings-group">
                     <label>Informações do Perfil:</label>
                     <div class="profile-reset-wrapper">
-                        <p>Deseja recomeçar a sua jornada matemática do zero?</p>
+                        <p>Deseja recomeçar a sua jornada de alfabetização do zero?</p>
                         <button id="btn-settings-reset" class="btn btn-danger">Zerar Todo o Progresso ⚠️</button>
                     </div>
                 </div>
 
                 <div class="settings-group desc-text">
-                    <p>Desenvolvido com carinho para o aprendizado saudável das crianças. Ao completar a aventura, você receberá o Certificado de Mestre Supremo da Tabuada!</p>
+                    <p>Desenvolvido com carinho para o aprendizado saudável das crianças. Ao completar a aventura, você receberá o Certificado de Mestre Supremo da Alfabetização!</p>
                 </div>
 
                 <div class="settings-group developer-credit">
@@ -560,8 +560,8 @@
                     <div class="cert-inner-border">
                         <div class="cert-header">
                             <span class="cert-emblem">🏆</span>
-                            <h2>Reino dos Números</h2>
-                            <p class="cert-subtitle">Ministério da Aventura Matemática</p>
+                            <h2>Reino das Letras</h2>
+                            <p class="cert-subtitle">Ministério da Alfabetização Real</p>
                         </div>
                         
                         <div class="cert-body">
@@ -569,20 +569,20 @@
                             <p class="cert-intro">Certificamos com honras reais que o intrépido aventureiro(a)</p>
                             <h2 class="cert-player-name" id="cert-display-name">NOME DO JOGADOR</h2>
                             <p class="cert-declaration">
-                                Concluiu com sucesso a grande jornada e superou todos os desafios, derrotando os Guardiões das tabuadas de 2 até 9 e completando os quebra-cabeças dos reinos.
+                                Concluiu com sucesso a grande jornada e superou todos os desafios, derrotando os Guardiões das consoantes, vogais e sílabas e completando os quebra-cabeças dos 8 reinos.
                             </p>
                             <p class="cert-title-granted">Por seus feitos, recebe o título oficial de:</p>
-                            <div class="cert-granted-badge">Mestre Supremo da Tabuada 👑</div>
+                            <div class="cert-granted-badge">Mestre Supremo da Alfabetização 👑</div>
                         </div>
 
                         <div class="cert-footer">
                             <div class="cert-sign">
                                 <div class="sign-line"></div>
-                                <p>Guardião da Aritmética</p>
+                                <p>Guardião do Alfabeto</p>
                             </div>
                             <div class="cert-sign">
                                 <div class="sign-line"></div>
-                                <p>Rei dos Números</p>
+                                <p>Rei das Letras</p>
                             </div>
                         </div>
                     </div>
@@ -594,6 +594,8 @@
                 <button id="btn-cert-restart" class="btn btn-secondary">Jogar Novamente 🔄</button>
                 <button id="btn-cert-map" class="btn btn-info">Ver Álbum & Herói</button>
             </div>
+
+            <p class="print-tip">💡 <strong>Dica Real:</strong> Para salvar em PDF com todas as cores e fundos bonitos, certifique-se de ativar a opção <strong>"Gráficos de segundo plano"</strong> (ou <strong>"Background graphics"</strong>) na tela de impressão!</p>
         </section>
 
     </div>

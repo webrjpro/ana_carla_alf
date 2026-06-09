@@ -7,11 +7,11 @@
 // 1. GAME CONSTANTS & DATABASE
 const KINGDOMS = {
     2: {
-        name: "Reino do Dobro",
-        icon: "🌲",
-        bossName: "Duplicador de Sombras",
-        puzzleTitle: "Floresta Binária",
-        rewardName: "Medalha do Dobro",
+        name: "Reino das Vogais",
+        icon: "🍎",
+        bossName: "Monstro Come-Vogais",
+        puzzleTitle: "Pomar das Vogais",
+        rewardName: "Medalha das Vogais",
         rewardIcon: "🏅",
         gearId: "espada_luz",
         gearName: "Espada de Luz",
@@ -20,11 +20,11 @@ const KINGDOMS = {
         color: "var(--k-2)"
     },
     3: {
-        name: "Reino dos Triplos",
-        icon: "💎",
-        bossName: "Lorde Tríplice",
-        puzzleTitle: "Catarata de Cristais",
-        rewardName: "Cristal Triplo",
+        name: "Reino do Alfabeto",
+        icon: "🔤",
+        bossName: "Lorde das Letras Soltas",
+        puzzleTitle: "Cachoeira do A-B-C",
+        rewardName: "Cristal do Alfabeto",
         rewardIcon: "💎",
         gearId: "capa_heroi",
         gearName: "Capa de Herói",
@@ -33,11 +33,11 @@ const KINGDOMS = {
         color: "var(--k-3)"
     },
     4: {
-        name: "Fortaleza do 4",
-        icon: "🏰",
-        bossName: "Guardião Quadrangular",
-        puzzleTitle: "Muralha Imperial",
-        rewardName: "Escudo Quadrado",
+        name: "Fortaleza do Som Inicial",
+        icon: "🔊",
+        bossName: "Mago Silenciador",
+        puzzleTitle: "Muralha do Som",
+        rewardName: "Escudo do Som",
         rewardIcon: "🛡️",
         gearId: "escudo_reino",
         gearName: "Escudo do Reino",
@@ -46,11 +46,11 @@ const KINGDOMS = {
         color: "var(--k-4)"
     },
     5: {
-        name: "Ilha do 5",
-        icon: "🏴‍☠️",
-        bossName: "Pirata Barba-Múltipla",
-        puzzleTitle: "Navio dos Múltiplos",
-        rewardName: "Moeda Estrela",
+        name: "Ilha das Sílabas Iniciais",
+        icon: "🗣️",
+        bossName: "Pirata Sombra das Sílabas",
+        puzzleTitle: "Navio das Sílabas Iniciais",
+        rewardName: "Insígnia de Sílabas",
         rewardIcon: "🪙",
         gearId: "chapeu_explorador",
         gearName: "Chapéu de Explorador",
@@ -59,11 +59,11 @@ const KINGDOMS = {
         color: "var(--k-5)"
     },
     6: {
-        name: "Caverna do 6",
-        icon: "🌋",
-        bossName: "Monstro dos Seis Olhos",
-        puzzleTitle: "Tesouro Subterrâneo",
-        rewardName: "Chave da Caverna",
+        name: "Caverna das Palavrinhas",
+        icon: "🐱",
+        bossName: "Duende Embaraçador",
+        puzzleTitle: "Monumento de Palavras",
+        rewardName: "Chave das Palavras",
         rewardIcon: "🔑",
         gearId: "mochila_aventura",
         gearName: "Mochila de Aventura",
@@ -72,11 +72,11 @@ const KINGDOMS = {
         color: "var(--k-6)"
     },
     7: {
-        name: "Torre do 7",
-        icon: "⚡",
-        bossName: "Mago dos Raios",
-        puzzleTitle: "Parábola de Relâmpagos",
-        rewardName: "Relâmpago Mágico",
+        name: "Torre das Rimas",
+        icon: "🔔",
+        bossName: "Mago Sem-Rima",
+        puzzleTitle: "Torre dos Sinos",
+        rewardName: "Sino Rítmico",
         rewardIcon: "⚡",
         gearId: "elmo_fogo",
         gearName: "Elmo de Fogo",
@@ -85,11 +85,11 @@ const KINGDOMS = {
         color: "var(--k-7)"
     },
     8: {
-        name: "Labirinto do 8",
+        name: "Labirinto das Sílabas Finais",
         icon: "🌀",
-        bossName: "Minotauro Infinito",
-        puzzleTitle: "Núcleo de Diamantes",
-        rewardName: "Diamante Infinito",
+        bossName: "Minotauro dos Sons Finais",
+        puzzleTitle: "Labirinto Sonoro",
+        rewardName: "Estrela Guia",
         rewardIcon: "💎",
         gearId: "mochila_jato",
         gearName: "Mochila a Jato",
@@ -98,11 +98,11 @@ const KINGDOMS = {
         color: "var(--k-8)"
     },
     9: {
-        name: "Castelo Final",
+        name: "Castelo das Palavras",
         icon: "👑",
-        bossName: "Dragão dos Mestres",
-        puzzleTitle: "Palácio de Ouro",
-        rewardName: "Coroa dos Mestres",
+        bossName: "Dragão das Letras Sumidas",
+        puzzleTitle: "Palácio do Saber",
+        rewardName: "Coroa do Saber",
         rewardIcon: "👑",
         gearId: "coroa_imperial",
         gearName: "Coroa Imperial",
@@ -372,16 +372,290 @@ const PUZZLE_ART = {
 };
 
 const BOSS_DATA = {
-    2: { name: "Duplicador de Sombras", bodyColor: "#334155", detailColor: "#94a3b8", icon: "👤" },
-    3: { name: "Lorde Tríplice", bodyColor: "#0891b2", detailColor: "#22d3ee", icon: "💎" },
-    4: { name: "Guardião Quadrangular", bodyColor: "#7c2d12", detailColor: "#f97316", icon: "🧱" },
-    5: { name: "Pirata Barba-Múltipla", bodyColor: "#7c3aed", detailColor: "#a78bfa", icon: "🏴‍☠️" },
-    6: { name: "Monstro dos Seis Olhos", bodyColor: "#b91c1c", detailColor: "#f87171", icon: "👁️" },
-    7: { name: "Mago dos Raios", bodyColor: "#1e1b4b", detailColor: "#fbbf24", icon: "🧙‍♂️" },
-    8: { name: "Minotauro Infinito", bodyColor: "#451a03", detailColor: "#f59e0b", icon: "🐂" },
-    9: { name: "Dragão dos Mestres", bodyColor: "#065f46", detailColor: "#34d399", icon: "🐉" },
-    "arena": { name: "Mestre Supremo Giga", bodyColor: "#1e1b4b", detailColor: "#f43f5e", icon: "🔱" }
+    2: { name: "Monstro Come-Vogais", bodyColor: "#334155", detailColor: "#94a3b8", icon: "🍎" },
+    3: { name: "Lorde das Letras Soltas", bodyColor: "#0891b2", detailColor: "#22d3ee", icon: "🔤" },
+    4: { name: "Mago Silenciador", bodyColor: "#7c2d12", detailColor: "#f97316", icon: "🔊" },
+    5: { name: "Pirata Sombra das Sílabas", bodyColor: "#7c3aed", detailColor: "#a78bfa", icon: "🗣️" },
+    6: { name: "Duende Embaraçador", bodyColor: "#b91c1c", detailColor: "#f87171", icon: "🐱" },
+    7: { name: "Mago Sem-Rima", bodyColor: "#1e1b4b", detailColor: "#fbbf24", icon: "🔔" },
+    8: { name: "Minotauro dos Sons Finais", bodyColor: "#451a03", detailColor: "#f59e0b", icon: "🌀" },
+    9: { name: "Dragão das Letras Sumidas", bodyColor: "#065f46", detailColor: "#34d399", icon: "👑" },
+    "arena": { name: "Mestre Supremo da Alfabetização", bodyColor: "#1e1b4b", detailColor: "#f43f5e", icon: "🔱" }
 };
+
+const LITERACY_DATABASE = {
+    2: {
+        // Reino das Vogais
+        stage1: [
+            { q: "A", a: "a", hint: "A vogal <strong>A</strong> maiúscula combina com o <strong>a</strong> minúsculo. Lembra da <strong>A</strong>belha? 🐝" },
+            { q: "E", a: "e", hint: "A vogal <strong>E</strong> maiúscula combina com o <strong>e</strong> minúsculo. Lembra do <strong>E</strong>lefante? 🐘" },
+            { q: "I", a: "i", hint: "A vogal <strong>I</strong> maiúscula combina com o <strong>i</strong> minúsculo. Lembra da <strong>I</strong>greja? ⛪" },
+            { q: "O", a: "o", hint: "A vogal <strong>O</strong> maiúscula combina com o <strong>o</strong> minúsculo. Lembra da <strong>O</strong>velha? 🐑" },
+            { q: "U", a: "u", hint: "A vogal <strong>U</strong> maiúscula combina com o <strong>u</strong> minúsculo. Lembra da <strong>U</strong>va? 🍇" },
+            { q: "ÃO", a: "ão", hint: "O som nasal <strong>ÃO</strong> combina com <strong>ão</strong>, como no final do Bal<strong>ão</strong>! 🎈" }
+        ],
+        stage2: [
+            { q: "A", a: "Abelha 🐝", hint: "A palavra <strong>Abelha</strong> começa com a letra <strong>A</strong>! 🐝" },
+            { q: "E", a: "Elefante 🐘", hint: "A palavra <strong>Elefante</strong> começa com a letra <strong>E</strong>! 🐘" },
+            { q: "I", a: "Igreja ⛪", hint: "A palavra <strong>Igreja</strong> começa com a letra <strong>I</strong>! ⛪" },
+            { q: "O", a: "Ovelha 🐑", hint: "A palavra <strong>Ovelha</strong> começa com a letra <strong>O</strong>! 🐑" },
+            { q: "U", a: "Uva 🍇", hint: "A palavra <strong>Uva</strong> começa com a letra <strong>U</strong>! 🍇" },
+            { q: "a", a: "Avião ✈️", hint: "A palavra <strong>Avião</strong> começa com a letra <strong>a</strong>! ✈️" },
+            { q: "e", a: "Estrela ⭐", hint: "A palavra <strong>Estrela</strong> começa com a letra <strong>e</strong>! ⭐" },
+            { q: "i", a: "Iguana 🦎", hint: "A palavra <strong>Iguana</strong> começa com a letra <strong>i</strong>! 🦎" },
+            { q: "o", a: "Ovo 🥚", hint: "A palavra <strong>Ovo</strong> começa com a letra <strong>o</strong>! 🥚" },
+            { q: "u", a: "Urso 🐻", hint: "A palavra <strong>Urso</strong> começa com a letra <strong>u</strong>! 🐻" }
+        ],
+        stage3: [
+            { q: "Qual letra completa: _belha 🐝?", a: "A", options: ["A", "E", "I", "O"], hint: "O som inicial de <strong>Abelha</strong> é <strong>A</strong>!" },
+            { q: "Qual letra completa: _strela ⭐?", a: "E", options: ["E", "A", "O", "I"], hint: "O som inicial de <strong>Estrela</strong> é <strong>E</strong>!" },
+            { q: "Qual letra completa: _greja ⛪?", a: "I", options: ["I", "E", "U", "A"], hint: "O som inicial de <strong>Igreja</strong> é <strong>I</strong>!" },
+            { q: "Qual letra completa: _velha 🐑?", a: "O", options: ["O", "U", "E", "A"], hint: "O som inicial de <strong>Ovelha</strong> é <strong>O</strong>!" },
+            { q: "Qual letra completa: _rso 🐻?", a: "U", options: ["U", "O", "I", "E"], hint: "O som inicial de <strong>Urso</strong> é <strong>U</strong>!" },
+            { q: "Qual letra completa: _va 🍇?", a: "U", options: ["U", "A", "E", "O"], hint: "O som inicial de <strong>Uva</strong> é <strong>U</strong>!" }
+        ]
+    },
+    3: {
+        // Reino do Alfabeto
+        stage1: [
+            { q: "B", a: "b", hint: "A letra <strong>B</strong> maiúscula se parece com o <strong>b</strong> minúsculo. Ela é de <strong>B</strong>ola!" },
+            { q: "C", a: "c", hint: "A letra <strong>C</strong> maiúscula se parece com o <strong>c</strong> minúsculo. Ela é de <strong>C</strong>asa!" },
+            { q: "D", a: "d", hint: "A letra <strong>D</strong> maiúscula se parece com o <strong>d</strong> minúsculo. Ela é de <strong>D</strong>ado!" },
+            { q: "F", a: "f", hint: "A letra <strong>F</strong> maiúscula se parece com o <strong>f</strong> minúsculo. Ela é de <strong>F</strong>ada!" },
+            { q: "G", a: "g", hint: "A letra <strong>G</strong> maiúscula se parece com o <strong>g</strong> minúsculo. Ela é de <strong>G</strong>ato!" },
+            { q: "H", a: "h", hint: "A letra <strong>H</strong> maiúscula se parece com o <strong>h</strong> minúsculo. Ela é de <strong>H</strong>arpa!" }
+        ],
+        stage2: [
+            { q: "B", a: "Bola ⚽", hint: "A palavra <strong>Bola</strong> começa com a letra <strong>B</strong>! ⚽" },
+            { q: "C", a: "Casa 🏠", hint: "A palavra <strong>Casa</strong> começa com a letra <strong>C</strong>! 🏠" },
+            { q: "D", a: "Dado 🎲", hint: "A palavra <strong>Dado</strong> começa com a letra <strong>D</strong>! 🎲" },
+            { q: "F", a: "Fada 🧚", hint: "A palavra <strong>Fada</strong> começa com a letra <strong>F</strong>! 🧚" },
+            { q: "G", a: "Gato 🐱", hint: "A palavra <strong>Gato</strong> começa com a letra <strong>G</strong>! 🐱" },
+            { q: "H", a: "Harpa 🪕", hint: "A palavra <strong>Harpa</strong> começa com a letra <strong>H</strong>! 🪕" },
+            { q: "J", a: "Jacaré 🐊", hint: "A palavra <strong>Jacaré</strong> começa com a letra <strong>J</strong>! 🐊" },
+            { q: "L", a: "Leão 🦁", hint: "A palavra <strong>Leão</strong> começa com a letra <strong>L</strong>! 🦁" },
+            { q: "M", a: "Macaco 🐒", hint: "A palavra <strong>Macaco</strong> começa com a letra <strong>M</strong>! 🐒" },
+            { q: "N", a: "Navio 🚢", hint: "A palavra <strong>Navio</strong> começa com a letra <strong>N</strong>! 🚢" }
+        ],
+        stage3: [
+            { q: "Qual letra começa: Casa 🏠?", a: "C", options: ["C", "B", "D", "G"], hint: "O som inicial da palavra <strong>Casa</strong> é <strong>C</strong>!" },
+            { q: "Qual letra começa: Bola ⚽?", a: "B", options: ["B", "P", "D", "C"], hint: "O som inicial da palavra <strong>Bola</strong> é <strong>B</strong>!" },
+            { q: "Qual letra começa: Gato 🐱?", a: "G", options: ["G", "J", "C", "K"], hint: "O som inicial da palavra <strong>Gato</strong> é <strong>G</strong>!" },
+            { q: "Qual letra começa: Dado 🎲?", a: "D", options: ["D", "T", "B", "G"], hint: "O som inicial da palavra <strong>Dado</strong> é <strong>D</strong>!" },
+            { q: "Qual letra começa: Jacaré 🐊?", a: "J", options: ["J", "G", "CH", "S"], hint: "O som inicial da palavra <strong>Jacaré</strong> é <strong>J</strong>!" },
+            { q: "Qual letra começa: Leão 🦁?", a: "L", options: ["L", "N", "M", "I"], hint: "O som inicial da palavra <strong>Leão</strong> é <strong>L</strong>!" }
+        ]
+    },
+    4: {
+        // Reino do Som Inicial
+        stage1: [
+            { q: "P", a: "Pato 🦆", hint: "A letra <strong>P</strong> faz o som inicial de <strong>Pato</strong>!" },
+            { q: "R", a: "Rato 🐭", hint: "A letra <strong>R</strong> faz o som forte inicial de <strong>Rato</strong>!" },
+            { q: "S", a: "Sapo 🐸", hint: "A letra <strong>S</strong> faz o som de sssss inicial de <strong>Sapo</strong>!" },
+            { q: "T", a: "Tatu 🦦", hint: "A letra <strong>T</strong> faz o som inicial de <strong>Tatu</strong>!" },
+            { q: "V", a: "Vaca 🐮", hint: "A letra <strong>V</strong> faz o som inicial de <strong>Vaca</strong>!" },
+            { q: "Z", a: "Zebra 🦓", hint: "A letra <strong>Z</strong> faz o som de zzzz inicial de <strong>Zebra</strong>!" }
+        ],
+        stage2: [
+            { q: "K", a: "Kiwi 🥝", hint: "A palavra <strong>Kiwi</strong> começa com a letra <strong>K</strong>!" },
+            { q: "W", a: "Wafer 🧇", hint: "A palavra <strong>Wafer</strong> começa com a letra <strong>W</strong>!" },
+            { q: "Y", a: "Yakult 🥛", hint: "A palavra <strong>Yakult</strong> começa com a letra <strong>Y</strong>!" },
+            { q: "P", a: "Peixe 🐟", hint: "A palavra <strong>Peixe</strong> começa com a letra <strong>P</strong>!" },
+            { q: "R", a: "Roda 🎡", hint: "A palavra <strong>Roda</strong> começa com a letra <strong>R</strong>!" },
+            { q: "S", a: "Sino 🔔", hint: "A palavra <strong>Sino</strong> começa com a letra <strong>S</strong>!" },
+            { q: "T", a: "Trem 🚂", hint: "A palavra <strong>Trem</strong> começa com a letra <strong>T</strong>!" },
+            { q: "V", a: "Vela 🕯️", hint: "A palavra <strong>Vela</strong> começa com a letra <strong>V</strong>!" },
+            { q: "Z", a: "Zíper 🤐", hint: "A palavra <strong>Zíper</strong> começa com a letra <strong>Z</strong>!" },
+            { q: "X", a: "Xícara ☕", hint: "A palavra <strong>Xícara</strong> começa com a letra <strong>X</strong>!" }
+        ],
+        stage3: [
+            { q: "Qual é a primeira letra de: Rato 🐭?", a: "R", options: ["R", "L", "S", "M"], hint: "O som inicial da palavra <strong>Rato</strong> é <strong>R</strong>!" },
+            { q: "Qual é a primeira letra de: Sapo 🐸?", a: "S", options: ["S", "Z", "C", "F"], hint: "O som inicial da palavra <strong>Sapo</strong> é <strong>S</strong>!" },
+            { q: "Qual é a primeira letra de: Zebra 🦓?", a: "Z", options: ["Z", "S", "J", "X"], hint: "O som inicial da palavra <strong>Zebra</strong> é <strong>Z</strong>!" },
+            { q: "Qual é a primeira letra de: Pato 🦆?", a: "P", options: ["P", "B", "T", "F"], hint: "O som inicial da palavra <strong>Pato</strong> é <strong>P</strong>!" },
+            { q: "Qual é a primeira letra de: Vaca 🐮?", a: "V", options: ["V", "F", "U", "B"], hint: "O som inicial da palavra <strong>Vaca</strong> é <strong>V</strong>!" },
+            { q: "Qual é a primeira letra de: Xícara ☕?", a: "X", options: ["X", "S", "CH", "Z"], hint: "O som inicial da palavra <strong>Xícara</strong> é <strong>X</strong>!" }
+        ]
+    },
+    5: {
+        // Reino das Sílabas Iniciais
+        stage1: [
+            { q: "BA", a: "Banana 🍌", hint: "A sílaba <strong>BA</strong> começa a palavra <strong>BA-NA-NA</strong>!" },
+            { q: "CA", a: "Cavalo 🐴", hint: "A sílaba <strong>CA</strong> começa a palavra <strong>CA-VA-LO</strong>!" },
+            { q: "DA", a: "Dado 🎲", hint: "A sílaba <strong>DA</strong> começa a palavra <strong>DA-DO</strong>!" },
+            { q: "FA", a: "Faca 🔪", hint: "A sílaba <strong>FA</strong> começa a palavra <strong>FA-CA</strong>!" },
+            { q: "GA", a: "Galinha 🐔", hint: "A sílaba <strong>GA</strong> começa a palavra <strong>GA-LI-NHA</strong>!" },
+            { q: "MA", a: "Mala 💼", hint: "A sílaba <strong>MA</strong> começa a palavra <strong>MA-LA</strong>!" }
+        ],
+        stage2: [
+            { q: "BO", a: "Bolo 🎂", hint: "A palavra <strong>Bolo</strong> começa com <strong>BO</strong>!" },
+            { q: "CO", a: "Copo 🥛", hint: "A palavra <strong>Copo</strong> começa com <strong>CO</strong>!" },
+            { q: "DO", a: "Doce 🍬", hint: "A palavra <strong>Doce</strong> começa com <strong>DO</strong>!" },
+            { q: "FO", a: "Fogo 🔥", hint: "A palavra <strong>Fogo</strong> começa com <strong>FO</strong>!" },
+            { q: "GO", a: "Gota 💧", hint: "A palavra <strong>Gota</strong> começa com <strong>GO</strong>!" },
+            { q: "JA", a: "Janela 🪟", hint: "A palavra <strong>Janela</strong> começa com <strong>JA</strong>!" },
+            { q: "LA", a: "Lápis ✏️", hint: "A palavra <strong>Lápis</strong> começa com <strong>LA</strong>!" },
+            { q: "MA", a: "Mesa 🪑", hint: "A palavra <strong>Mesa</strong> começa com <strong>MA</strong>!" },
+            { q: "PA", a: "Pena 🪶", hint: "A palavra <strong>Pena</strong> começa com <strong>PA</strong>!" },
+            { q: "SA", a: "Sapo 🐸", hint: "A palavra <strong>Sapo</strong> começa com <strong>SA</strong>!" }
+        ],
+        stage3: [
+            { q: "Qual sílaba começa: Bolo 🎂?", a: "BO", options: ["BO", "BA", "CO", "LO"], hint: "O som inicial de <strong>Bolo</strong> é <strong>BO</strong>!" },
+            { q: "Qual sílaba começa: Copo 🥛?", a: "CO", options: ["CO", "CA", "BO", "PO"], hint: "O som inicial de <strong>Copo</strong> é <strong>CO</strong>!" },
+            { q: "Qual sílaba começa: Janela 🪟?", a: "JA", options: ["JA", "JE", "GE", "LA"], hint: "O som inicial de <strong>Janela</strong> é <strong>JA</strong>!" },
+            { q: "Qual sílaba começa: Galinha 🐔?", a: "GA", options: ["GA", "GO", "JA", "CA"], hint: "O som inicial de <strong>Galinha</strong> é <strong>GA</strong>!" },
+            { q: "Qual sílaba começa: Dente 🦷?", a: "DE", options: ["DE", "DA", "TE", "DO"], hint: "O som inicial de <strong>Dente</strong> é <strong>DE</strong>!" },
+            { q: "Qual sílaba começa: Banana 🍌?", a: "BA", options: ["BA", "BO", "MA", "PA"], hint: "O som inicial de <strong>Banana</strong> é <strong>BA</strong>!" }
+        ]
+    },
+    6: {
+        // Reino das Palavrinhas
+        stage1: [
+            { q: "GA + TO", a: "GATO 🐱", hint: "Juntando <strong>GA</strong> e <strong>TO</strong> formamos <strong>GATO</strong>!" },
+            { q: "BO + LO", a: "BOLO 🎂", hint: "Juntando <strong>BO</strong> e <strong>LO</strong> formamos <strong>BOLO</strong>!" },
+            { q: "CA + SA", a: "CASA 🏠", hint: "Juntando <strong>CA</strong> e <strong>SA</strong> formamos <strong>CASA</strong>!" },
+            { q: "PA + TO", a: "PATO 🦆", hint: "Juntando <strong>PA</strong> e <strong>TO</strong> formamos <strong>PATO</strong>!" },
+            { q: "MA + LA", a: "MALA 💼", hint: "Juntando <strong>MA</strong> e <strong>LA</strong> formamos <strong>MALA</strong>!" },
+            { q: "SU + CO", a: "SUCO 🍹", hint: "Juntando <strong>SU</strong> e <strong>CO</strong> formamos <strong>SUCO</strong>!" }
+        ],
+        stage2: [
+            { q: "BOLA", a: "Bola ⚽", hint: "A palavra <strong>BOLA</strong> representa o brinquedo bola!" },
+            { q: "COLA", a: "Cola 🧪", hint: "A palavra <strong>COLA</strong> é o adesivo que cola!" },
+            { q: "DADO", a: "Dado 🎲", hint: "A palavra <strong>DADO</strong> é o cubo de jogo com pontos!" },
+            { q: "FADA", a: "Fada 🧚", hint: "A palavra <strong>FADA</strong> é o ser mágico das asas!" },
+            { q: "GATO", a: "Gato 🐱", hint: "A palavra <strong>GATO</strong> é o bichinho que mia!" },
+            { q: "LAMA", a: "Lama 🕳️", hint: "A palavra <strong>LAMA</strong> é a mistura de terra e água!" },
+            { q: "MAPA", a: "Mapa 🗺️", hint: "A palavra <strong>MAPA</strong> mostra o caminho do tesouro!" },
+            { q: "NETO", a: "Neto 👦", hint: "A palavra <strong>NETO</strong> é o filho do vovô!" },
+            { q: "PIPA", a: "Pipa 🪁", hint: "A palavra <strong>PIPA</strong> voa alto presa a uma linha!" },
+            { q: "RATO", a: "Rato 🐭", hint: "A palavra <strong>RATO</strong> é o bichinho que adora queijo!" }
+        ],
+        stage3: [
+            { q: "Junte as partes: CA + SA ?", a: "CASA", options: ["CASA", "CAMA", "CADA", "COSA"], hint: "Juntando <strong>CA</strong> e <strong>SA</strong> formamos a palavra <strong>CASA</strong>!" },
+            { q: "Junte as partes: BOLA ?", a: "BO + LA", options: ["BO + LA", "BA + LA", "BO + TA", "CO + LA"], hint: "As sílabas que formam <strong>BOLA</strong> são <strong>BO</strong> e <strong>LA</strong>!" },
+            { q: "Junte as partes: PA + TO ?", a: "PATO", options: ["PATO", "PANO", "PAPO", "GATO"], hint: "Juntando <strong>PA</strong> e <strong>TO</strong> formamos a palavra <strong>PATO</strong>!" },
+            { q: "Junte as partes: MA + LA ?", a: "MALA", options: ["MALA", "MACA", "MAPA", "BOLA"], hint: "Juntando <strong>MA</strong> e <strong>LA</strong> formamos a palavra <strong>MALA</strong>!" },
+            { q: "Qual palavra é: G A T O?", a: "GATO", options: ["GATO", "MATO", "RATO", "PATO"], hint: "Soletrando <strong>G-A-T-O</strong> formamos a palavra <strong>GATO</strong>!" },
+            { q: "Qual palavra é: B O L O?", a: "BOLO", options: ["BOLO", "COLO", "BOLA", "LOTO"], hint: "Soletrando <strong>B-O-L-O</strong> formamos a palavra <strong>BOLO</strong>!" }
+        ]
+    },
+    7: {
+        // Reino das Rimas
+        stage1: [
+            { q: "Gato", a: "Rato", hint: "<strong>Gato</strong> rima com <strong>Rato</strong> porque as duas terminam com o som -ATO!" },
+            { q: "Cão", a: "Pão", hint: "<strong>Cão</strong> rima com <strong>Pão</strong> porque as duas terminam com o som -ÃO!" },
+            { q: "Pena", a: "Cena", hint: "<strong>Pena</strong> rima com <strong>Cena</strong> porque as duas terminam com o som -ENA!" },
+            { q: "Mola", a: "Bola", hint: "<strong>Mola</strong> rima com <strong>Bola</strong> porque as duas terminam com o som -OLA!" },
+            { q: "Chulé", a: "Pé", hint: "<strong>Chulé</strong> rima com <strong>Pé</strong> porque as duas terminam com o som -É!" },
+            { q: "Mamão", a: "Limão", hint: "<strong>Mamão</strong> rima com <strong>Limão</strong> porque as duas terminam com o som -ÃO!" }
+        ],
+        stage2: [
+            { q: "Anel", a: "Papel 📄", hint: "<strong>Anel</strong> e <strong>Papel</strong> terminam com o som -EL!" },
+            { q: "Pão", a: "Mão ✋", hint: "<strong>Pão</strong> e <strong>Mão</strong> terminam com o som -ÃO!" },
+            { q: "Janela", a: "Panela 🍳", hint: "<strong>Janela</strong> e <strong>Panela</strong> terminam com o som -ELA!" },
+            { q: "Gato", a: "Pato 🦆", hint: "<strong>Gato</strong> e <strong>Pato</strong> terminam com o som -ATO!" },
+            { q: "Cachorro", a: "Morro ⛰️", hint: "<strong>Cachorro</strong> e <strong>Morro</strong> terminam com o som -ORRO!" },
+            { q: "Pé", a: "Café ☕", hint: "<strong>Pé</strong> e <strong>Café</strong> terminam com o som -É!" },
+            { q: "Pipa", a: "Fita 🎀", hint: "<strong>Pipa</strong> e <strong>Fita</strong> terminam com sons parecidos!" },
+            { q: "Leão", a: "Balão 🎈", hint: "<strong>Leão</strong> e <strong>Balão</strong> terminam com o som -ÃO!" },
+            { q: "Castelo", a: "Martelo 🔨", hint: "<strong>Castelo</strong> e <strong>Martelo</strong> terminam com o som -ELO!" },
+            { q: "Sino", a: "Menino 👦", hint: "<strong>Sino</strong> e <strong>Menino</strong> terminam com o som -INO!" }
+        ],
+        stage3: [
+            { q: "O que rima com: Gato 🐱?", a: "Rato 🐭", options: ["Rato 🐭", "Pato 🦆", "Mão ✋", "Bolo 🎂"], hint: "<strong>Gato</strong> rima perfeitamente com <strong>Rato</strong>!" },
+            { q: "O que rima com: Pão 🍞?", a: "Mão ✋", options: ["Mão ✋", "Pé 🦶", "Copo 🥛", "Bola ⚽"], hint: "<strong>Pão</strong> rima com <strong>Mão</strong>!" },
+            { q: "O que rima com: Pé 🦶?", a: "Café ☕", options: ["Café ☕", "Chá 🍵", "Bolo 🎂", "Dado 🎲"], hint: "<strong>Pé</strong> rima com <strong>Café</strong>!" },
+            { q: "O que rima com: Anel 💍?", a: "Papel 📄", options: ["Papel 📄", "Anzol ⚓", "Céu ☁️", "Chapéu 🤠"], hint: "<strong>Anel</strong> rima com <strong>Papel</strong>!" },
+            { q: "O que rima com: Janela 🪟?", a: "Panela 🍳", options: ["Panela 🍳", "Janota 👔", "Canela 🪵", "Fivela 🎗️"], hint: "<strong>Janela</strong> rima com <strong>Panela</strong>!" },
+            { q: "O que rima com: Leão 🦁?", a: "Balão 🎈", options: ["Balão 🎈", "Lobo 🐺", "Uva 🍇", "Gato 🐱"], hint: "<strong>Leão</strong> rima com <strong>Balão</strong>!" }
+        ]
+    },
+    8: {
+        // Reino das Sílabas Finais
+        stage1: [
+            { q: "CamiNHÃO", a: "AviÃO", hint: "Ambas terminam com o mesmo som de sílaba nasal <strong>ÃO</strong>!" },
+            { q: "BoneCA", a: "PipoCA", hint: "Ambas terminam com a sílaba <strong>CA</strong>!" },
+            { q: "EscuDO", a: "DaDO", hint: "Ambas terminam com a sílaba <strong>DO</strong>!" },
+            { q: "GaraFA", a: "FaFA", hint: "Ambas terminam com a sílaba <strong>FA</strong>!" },
+            { q: "SapaTO", a: "PaTO", hint: "Ambas terminam com a sílaba <strong>TO</strong>!" },
+            { q: "AbacaXI", a: "XiXI", hint: "Ambas terminam com a sílaba <strong>XI</strong>!" }
+        ],
+        stage2: [
+            { q: "TARTARUGA", a: "GA (Ruga)", hint: "A última sílaba de <strong>Tarta-ru-ga</strong> é <strong>GA</strong>!" },
+            { q: "BORBOLETA", a: "TA (Chupeta)", hint: "A última sílaba de <strong>Bor-bo-le-ta</strong> é <strong>TA</strong>!" },
+            { q: "CAVALO", a: "LO (Galo)", hint: "A última sílaba de <strong>Ca-va-lo</strong> é <strong>LO</strong>!" },
+            { q: "SAPATO", a: "TO (Gato)", hint: "A última sílaba de <strong>Sa-pa-to</strong> é <strong>TO</strong>!" },
+            { q: "BONECA", a: "CA (Faca)", hint: "A última sílaba de <strong>Bo-ne-ca</strong> é <strong>CA</strong>!" },
+            { q: "CEBOLA", a: "LA (Bola)", hint: "A última sílaba de <strong>Ce-bo-la</strong> é <strong>LA</strong>!" },
+            { q: "TUCANO", a: "NO (Pano)", hint: "A última sílaba de <strong>Tu-ca-no</strong> é <strong>NO</strong>!" },
+            { q: "AMIGO", a: "GO (Fogo)", hint: "A última sílaba de <strong>A-mi-go</strong> é <strong>GO</strong>!" },
+            { q: "CENOURA", a: "RA (Hora)", hint: "A última sílaba de <strong>Ce-nou-ra</strong> é <strong>RA</strong>!" },
+            { q: "PIPOCA", a: "CA (Boca)", hint: "A última sílaba de <strong>Pi-po-ca</strong> é <strong>CA</strong>!" }
+        ],
+        stage3: [
+            { q: "Qual a última sílaba de: Sapato 👟?", a: "TO", options: ["TO", "SA", "PA", "TA"], hint: "Diga a palavra devagar: Sa-pa-<strong>to</strong>!" },
+            { q: "Qual a última sílaba de: Borboleta 🦋?", a: "TA", options: ["TA", "LE", "BO", "TE"], hint: "Diga a palavra devagar: Bor-bo-le-<strong>ta</strong>!" },
+            { q: "Qual a última sílaba de: Pipoca 🍿?", a: "CA", options: ["CA", "PO", "PI", "CO"], hint: "Diga a palavra devagar: Pi-po-<strong>ca</strong>!" },
+            { q: "Qual a última sílaba de: Cavalo 🐴?", a: "LO", options: ["LO", "CA", "VA", "LA"], hint: "Diga a palavra devagar: Ca-va-<strong>lo</strong>!" },
+            { q: "Qual a última sílaba de: Cebola 🧅?", a: "LA", options: ["LA", "CE", "BO", "LO"], hint: "Diga a palavra devagar: Ce-bo-<strong>la</strong>!" },
+            { q: "Qual a última sílaba de: Tucano 🪶?", a: "NO", options: ["NO", "TU", "CA", "NA"], hint: "Diga a palavra devagar: Tu-ca-<strong>no</strong>!" }
+        ]
+    },
+    9: {
+        // Castelo das Palavras
+        stage1: [
+            { q: "B_LA", a: "O (BOLA)", hint: "Com a letra <strong>O</strong> no meio, formamos a palavra <strong>BOLA</strong>! ⚽" },
+            { q: "C_SA", a: "A (CASA)", hint: "Com a letra <strong>A</strong> no meio, formamos a palavra <strong>CASA</strong>! 🏠" },
+            { q: "G_TO", a: "A (GATO)", hint: "Com a letra <strong>A</strong> no meio, formamos a palavra <strong>GATO</strong>! 🐱" },
+            { q: "L_PO", a: "U (LUPO)", hint: "Com a letra <strong>U</strong> no meio, formamos a palavra <strong>LUPO</strong>! 🐺" },
+            { q: "U_A", a: "V (UVA)", hint: "Com a letra <strong>V</strong> no meio, formamos a palavra <strong>UVA</strong>! 🍇" },
+            { q: "P_TO", a: "A (PATO)", hint: "Com a letra <strong>A</strong> no meio, formamos a palavra <strong>PATO</strong>! 🦆" }
+        ],
+        stage2: [
+            { q: "CA_A", a: "S (CASA)", hint: "Colocando a consoante <strong>S</strong> completamos <strong>CASA</strong>!" },
+            { q: "BO_A", a: "L (BOLA)", hint: "Colocando a consoante <strong>L</strong> completamos <strong>BOLA</strong>!" },
+            { q: "GA_O", a: "T (GATO)", hint: "Colocando a consoante <strong>T</strong> completamos <strong>GATO</strong>!" },
+            { q: "DO_E", a: "C (DOCE)", hint: "Colocando a consoante <strong>C</strong> completamos <strong>DOCE</strong>!" },
+            { q: "MA_A", a: "L (MALA)", hint: "Colocando a consoante <strong>L</strong> completamos <strong>MALA</strong>!" },
+            { q: "SA_O", a: "P (SAPO)", hint: "Colocando a consoante <strong>P</strong> completamos <strong>SAPO</strong>!" },
+            { q: "VE_A", a: "L (VELA)", hint: "Colocando a consoante <strong>L</strong> completamos <strong>VELA</strong>!" },
+            { q: "PI_A", a: "P (PIPA)", hint: "Colocando a consoante <strong>P</strong> completamos <strong>PIPA</strong>!" },
+            { q: "SU_O", a: "C (SUCO)", hint: "Colocando a consoante <strong>C</strong> completamos <strong>SUCO</strong>!" },
+            { q: "LU_A", a: "V (LUVA)", hint: "Colocando a consoante <strong>V</strong> completamos <strong>LUVA</strong>!" }
+        ],
+        stage3: [
+            { q: "Falta uma letra em: BO_A ⚽", a: "L", options: ["L", "T", "C", "M"], hint: "Para chutar a BOLA, precisamos da letra <strong>L</strong> no meio!" },
+            { q: "Falta uma letra em: G_TO 🐱", a: "A", options: ["A", "O", "E", "I"], hint: "O felino que mia é o GATO, que leva a vogal <strong>A</strong>!" },
+            { q: "Falta uma letra em: SA_O 🐸", a: "P", options: ["P", "T", "B", "M"], hint: "O anfíbio saltador é o SAPO, que leva a letra <strong>P</strong>!" },
+            { q: "Falta uma letra em: DO_E 🍬", a: "C", options: ["C", "S", "Z", "X"], hint: "A bala de açúcar é um DOCE, que leva a consoante <strong>C</strong>!" },
+            { q: "Falta uma letra em: LU_A 🧤", a: "V", options: ["V", "B", "M", "F"], hint: "Para aquecer a mão usamos a LUVA, que leva a consoante <strong>V</strong>!" },
+            { q: "Falta uma letra em: MA_A 💼", a: "L", options: ["L", "C", "P", "T"], hint: "Para viajar levamos a MALA, que leva a consoante <strong>L</strong>!" }
+        ]
+    }
+};
+
+function speakText(text) {
+    if (!AudioPlayer || !AudioPlayer.enabled) return;
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel(); // Cancel any ongoing speech
+        
+        // Clean text of emojis and special characters for natural pronunciation
+        let cleanText = text.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF]/g, "") // Emojis
+                            .replace(/_/g, " ... ") // Pause for fill-in-the-blank
+                            .replace(/\+/g, " mais ") // Plus sign
+                            .trim();
+        
+        // If it's a single letter, pronounce it in lowercase
+        if (cleanText.length === 1) {
+            cleanText = cleanText.toLowerCase();
+        }
+        
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.lang = "pt-BR";
+        utterance.rate = 0.9; // Slightly slower, very clear for kids
+        window.speechSynthesis.speak(utterance);
+    }
+}
 
 // 2. SOUND EFFECTS SYNTHESIZER (WEB AUDIO API)
 class SoundSynth {
@@ -611,7 +885,7 @@ class GameState {
     }
 
     load() {
-        const saved = localStorage.getItem("tabuada_quest_progresso");
+        const saved = localStorage.getItem("alfabetizacao_quest_progresso");
         if (saved) {
             try {
                 this.data = this.mergeWithDefaults(JSON.parse(saved));
@@ -635,7 +909,7 @@ class GameState {
     }
 
     save() {
-        localStorage.setItem("tabuada_quest_progresso", JSON.stringify(this.data));
+        localStorage.setItem("alfabetizacao_quest_progresso", JSON.stringify(this.data));
     }
 
     reset() {
@@ -677,7 +951,7 @@ function getAdventureProgress() {
             completedCount: completedLevels.length,
             nextLevel: activeRun.level,
             nextName: `Continuar ${kingdom.name}`,
-            nextDetail: `Você parou na etapa ${stage} da tabuada do ${activeRun.level}.`,
+            nextDetail: `Você parou na etapa ${stage} do ${kingdom.name}.`,
             nextReward: `Conclua para ganhar ${kingdom.gearName}.`,
             allKingdomsCompleted,
             activeRun
@@ -703,7 +977,7 @@ function getAdventureProgress() {
             completedCount: completedLevels.length,
             nextLevel: "arena",
             nextName: State.data.completedAll ? "Jornada completa" : "Arena dos Mestres",
-            nextDetail: State.data.completedAll ? "Você já conquistou o certificado real." : "Desafio final com tabuadas misturadas.",
+            nextDetail: State.data.completedAll ? "Você já conquistou o certificado real." : "Desafio final de alfabetização misturado.",
             nextReward: State.data.completedAll ? "Certificado conquistado." : "Vença para liberar o certificado real.",
             allKingdomsCompleted,
             activeRun: null
@@ -718,7 +992,7 @@ function getAdventureProgress() {
         completedCount: completedLevels.length,
         nextLevel,
         nextName: kingdom.name,
-        nextDetail: `Tabuada do ${nextLevel} espera por você.`,
+        nextDetail: `O ${kingdom.name} espera por você.`,
         nextReward: `Vença para ganhar ${kingdom.gearName}.`,
         allKingdomsCompleted,
         activeRun: null
@@ -942,33 +1216,16 @@ function generateBossSVG(bossId, targetElementId) {
     `;
 }
 
-// 6. PEDAGOGICAL HINT GENERATOR
-function getPedagogicalHint(a, b) {
-    // Generates a smart math advice based on the factor combination
-    const total = a * b;
-    if (b === 1) {
-        return `Qualquer número multiplicado por 1 é ele mesmo! Então, <strong>${a} x 1 = ${a}</strong>.`;
+function getPedagogicalHint(level, idx, stage = 1) {
+    const db = LITERACY_DATABASE[level] || LITERACY_DATABASE[2];
+    if (stage === 1) {
+        if (db.stage1 && db.stage1[idx]) return db.stage1[idx].hint;
+    } else if (stage === 2) {
+        if (db.stage2 && db.stage2[idx]) return db.stage2[idx].hint;
+    } else if (stage === 3) {
+        if (db.stage3 && db.stage3[idx]) return db.stage3[idx].hint;
     }
-    if (b === 2) {
-        return `Multiplicar por 2 é o mesmo que somar o número duas vezes (o dobro)! <br><strong>${a} + ${a} = ${total}</strong>.`;
-    }
-    if (b === 10) {
-        return `Para multiplicar por 10, basta acrescentar um zero ao final do número! <br><strong>${a}</strong> vira <strong>${total}</strong>.`;
-    }
-    if (b === 5) {
-        return `Os resultados da tabuada do 5 sempre terminam em <strong>0</strong> ou <strong>5</strong>! <br>Contando de 5 em 5: 5, 10, 15, 20... chegamos a <strong>${total}</strong>.`;
-    }
-    if (b === 9) {
-        const prev = a * 10;
-        return `Dica especial do 9: Pense em <strong>${a} x 10</strong> que é <strong>${prev}</strong>, e depois retire <strong>${a}</strong>! <br>${prev} - ${a} = <strong>${total}</strong>.`;
-    }
-    
-    // Default additive suggestion
-    let additionList = [];
-    for (let i = 0; i < b; i++) {
-        additionList.push(a);
-    }
-    return `Quase lá! Multiplicar <strong>${a} x ${b}</strong> é somar o número <strong>${a}</strong> exatamente <strong>${b}</strong> vezes! <br>${additionList.join(" + ")} = <strong>${total}</strong>.`;
+    return "Continue tentando! Você é capaz! 🌟";
 }
 
 // 7. SCREEN NAVIGATION SYSTEM
@@ -1038,10 +1295,10 @@ const Screens = {
 
         // Player Level Title based on progress
         const countLevels = State.data.unlockedLevels.length;
-        let title = "Explorador";
-        if (countLevels >= 8) title = "Campeão Real";
-        else if (countLevels >= 5) title = "Mestre Inteiro";
-        else if (countLevels >= 3) title = "Cavaleiro do Dobro";
+        let title = "Iniciante do ABC";
+        if (countLevels >= 8) title = "Rei/Rainha do Alfabeto";
+        else if (countLevels >= 5) title = "Guardião das Letras";
+        else if (countLevels >= 3) title = "Explorador das Vogais";
         document.getElementById("hud-player-title").innerText = title;
 
         // Render player portrait or fallback avatar
@@ -1107,7 +1364,7 @@ const Screens = {
             card.innerHTML = `
                 <div class="album-medal-icon">${k.rewardIcon}</div>
                 <div class="album-medal-name">${k.rewardName}</div>
-                <div class="album-medal-desc">Tabuada do ${lvl}</div>
+                <div class="album-medal-desc">${k.name}</div>
             `;
             medalsGrid.appendChild(card);
         }
@@ -1366,13 +1623,16 @@ class GameplayController {
         
         this.selectedEquationCard = null;
 
-        // Pick 6 random math equations for the active kingdom
         const levelNum = this.currentLevel;
-        let formulas = [];
-        for (let i = 1; i <= 10; i++) {
-            formulas.push({ term1: levelNum, term2: i, result: levelNum * i });
-        }
-        // Shuffle formulas list and slice top 6
+        const db = LITERACY_DATABASE[levelNum] || LITERACY_DATABASE[2];
+        let formulas = db.stage1.map((item, idx) => ({
+            term1: levelNum,
+            term2: idx,
+            leftText: item.q,
+            resultText: item.a,
+            result: item.a
+        }));
+        
         formulas.sort(() => Math.random() - 0.5);
         const activePairs = formulas.slice(0, 6);
 
@@ -1381,7 +1641,7 @@ class GameplayController {
         shuffledEquations.forEach(pair => {
             const card = document.createElement("div");
             card.className = "match-card";
-            card.innerText = `${pair.term1} x ${pair.term2}`;
+            card.innerText = pair.leftText;
             card.setAttribute("draggable", "true");
             card.setAttribute("data-result", pair.result);
             card.setAttribute("data-equation", `${pair.term1}x${pair.term2}`);
@@ -1406,7 +1666,7 @@ class GameplayController {
         shuffledAnswers.forEach(pair => {
             const card = document.createElement("div");
             card.className = "match-card";
-            card.innerText = pair.result;
+            card.innerText = pair.resultText;
             card.setAttribute("data-result", pair.result);
             
             // Drop target listeners
@@ -1426,6 +1686,7 @@ class GameplayController {
     onMatchCardClick(card, type) {
         if (card.classList.contains("matched")) return;
         AudioPlayer.playClick();
+        speakText(card.innerText);
 
         if (type === "eq") {
             // Unselect previous
@@ -1475,6 +1736,7 @@ class GameplayController {
         e.dataTransfer.setData("text/plain", e.target.getAttribute("data-result"));
         e.dataTransfer.setData("eq-selector", e.target.getAttribute("data-equation"));
         e.target.classList.add("dragging");
+        speakText(e.target.innerText);
     }
 
     onDragEnd(e) {
@@ -1533,6 +1795,7 @@ class GameplayController {
         
         this.activeTouchElement = target;
         target.classList.add("dragging");
+        speakText(target.innerText);
         
         // Calculate offsets
         const rect = target.getBoundingClientRect();
@@ -1640,12 +1903,17 @@ class GameplayController {
         
         const puzzleArtwork = getPuzzleArtworkMarkup(levelNum);
 
-        let formulas = [];
-        for (let i = 1; i <= 10; i++) {
-            formulas.push({ term1: levelNum, term2: i, result: levelNum * i, index: i });
-        }
+        const db = LITERACY_DATABASE[levelNum] || LITERACY_DATABASE[2];
+        let formulas = db.stage2.map((item, idx) => ({
+            term1: levelNum,
+            term2: idx,
+            leftText: item.q,
+            resultText: item.a,
+            result: item.a,
+            index: idx + 1
+        }));
 
-        // Render slots inside the board in mathematical sequential order (1 to 10)
+        // Render slots inside the board in sequential order
         formulas.forEach(pair => {
             const slot = document.createElement("div");
             slot.className = "puzzle-slot";
@@ -1661,7 +1929,7 @@ class GameplayController {
             // Inner label representing the result answer
             slot.innerHTML = `
                 <span class="slot-art" style="left: -${colIdx * 100}%; top: -${rowIdx * 100}%;">${puzzleArtwork}</span>
-                <span class="slot-answer-label">${pair.result}</span>
+                <span class="slot-answer-label">${pair.resultText}</span>
             `;
             
             // Drop target listeners
@@ -1680,7 +1948,7 @@ class GameplayController {
         shuffledPieces.forEach(pair => {
             const piece = document.createElement("div");
             piece.className = "puzzle-piece";
-            piece.innerText = `${pair.term1} x ${pair.term2}`;
+            piece.innerText = pair.leftText;
             piece.setAttribute("draggable", "true");
             piece.setAttribute("data-result", pair.result);
             piece.setAttribute("data-equation", `${pair.term1}x${pair.term2}`);
@@ -1706,6 +1974,7 @@ class GameplayController {
     onPuzzlePieceClick(piece) {
         if (piece.classList.contains("placed")) return;
         AudioPlayer.playClick();
+        speakText(piece.innerText);
         
         if (this.selectedEquationCard) {
             this.selectedEquationCard.classList.remove("selected-match");
@@ -1716,6 +1985,11 @@ class GameplayController {
 
     onPuzzleSlotClick(slot) {
         if (slot.classList.contains("revealed")) return;
+        
+        const label = slot.querySelector(".slot-answer-label");
+        if (label) {
+            speakText(label.innerText);
+        }
         
         if (this.selectedEquationCard) {
             const eqRes = this.selectedEquationCard.getAttribute("data-result");
@@ -1878,7 +2152,7 @@ class GameplayController {
 
         // Trigger boss quote
         const bubble = document.getElementById("boss-dialogue-bubble");
-        bubble.innerText = `"Olá, ${State.data.playerName}! Duvido você resolver minhas contas!"`;
+        bubble.innerText = `"Olá, ${State.data.playerName}! Duvido você responder às minhas perguntas!"`;
 
         // Start battle loop
         this.nextBossQuestion();
@@ -1908,31 +2182,25 @@ class GameplayController {
     nextBossQuestion() {
         if (this.battleTimerInterval) clearInterval(this.battleTimerInterval);
         
-        // Pick random question from current level
         const levelNum = this.currentLevel;
-        const val2 = Math.floor(Math.random() * 10) + 1; // 1 to 10
-        const result = levelNum * val2;
-
-        this.battleCurrentEquation = { term1: levelNum, term2: val2, result: result };
+        const db = LITERACY_DATABASE[levelNum] || LITERACY_DATABASE[2];
         
-        // Display equation
-        document.getElementById("boss-equation").innerText = `${levelNum} x ${val2} = ?`;
+        // Pick random question from current level
+        const qIdx = Math.floor(Math.random() * db.stage3.length);
+        const item = db.stage3[qIdx];
+        
+        this.battleCurrentEquation = { term1: levelNum, term2: qIdx, result: item.a };
+        
+        // Display equation/question text
+        document.getElementById("boss-equation").innerText = item.q;
+        speakText(item.q);
 
         // Display multiple choice options
         const answersGrid = document.getElementById("boss-answers-grid");
         answersGrid.innerHTML = "";
 
-        // Build 4 options (1 correct, 3 wrong ones close to result)
-        let options = [result];
-        while (options.length < 4) {
-            let offset = (Math.floor(Math.random() * 4) + 1) * (Math.random() < 0.5 ? 1 : -1);
-            let wrongAns = result + offset;
-            // Prevent duplicate options or negatives/zeros
-            if (wrongAns > 0 && !options.includes(wrongAns)) {
-                options.push(wrongAns);
-            }
-        }
-        // Shuffle options
+        // Shuffle the options
+        let options = [...item.options];
         options.sort(() => Math.random() - 0.5);
 
         options.forEach(opt => {
@@ -1971,6 +2239,7 @@ class GameplayController {
 
     submitBossAnswer(selectedVal) {
         clearInterval(this.battleTimerInterval);
+        speakText(selectedVal);
         
         const correctVal = this.battleCurrentEquation.result;
         
@@ -2127,7 +2396,7 @@ class GameplayController {
     // ==========================================
     showVictoryScreen(levelNum, starsCount, coinsCount) {
         const k = KINGDOMS[levelNum];
-        document.getElementById("victory-kingdom-text").innerHTML = `Você dominou as tabuadas do <strong>${levelNum}</strong> e libertou o <strong>${k.name}</strong>!`;
+        document.getElementById("victory-kingdom-text").innerHTML = `Você completou os desafios e libertou o <strong>${k.name}</strong>!`;
         document.getElementById("victory-recompensa-name").innerText = k.rewardName;
         document.getElementById("victory-recompensa-icon").innerText = k.rewardIcon;
         
@@ -2185,8 +2454,13 @@ class GameplayController {
     showDicaPedagogica(a, b, onCloseCallback = null) {
         const modal = document.getElementById("hint-modal");
         const text = document.getElementById("hint-text");
-        text.innerHTML = getPedagogicalHint(a, b);
+        const hintHTML = getPedagogicalHint(a, b, this.currentStage);
+        text.innerHTML = hintHTML;
         modal.classList.add("active");
+
+        // Clean HTML tags and speak the hint aloud
+        const cleanHint = hintHTML.replace(/<[^>]*>/g, "");
+        speakText(cleanHint);
 
         const closeBtn = document.getElementById("btn-close-hint");
         const handler = () => {
@@ -2296,11 +2570,11 @@ class ArenaController {
         this.updateHeartsDisplay();
 
         // Setup Boss HUD
-        document.getElementById("battle-boss-name").innerText = "Guardião Supremo Giga";
+        document.getElementById("battle-boss-name").innerText = "Mestre Supremo da Alfabetização";
         generateBossSVG("arena", "battle-boss-avatar");
         this.updateBossHealthDisplay();
 
-        document.getElementById("boss-dialogue-bubble").innerText = `"Bem-vindo ao desafio supremo! Prove que você domina todas as tabuadas!"`;
+        document.getElementById("boss-dialogue-bubble").innerText = `"Bem-vindo ao desafio supremo! Prove que você domina todas as letras e sílabas!"`;
 
         this.nextQuestion();
         Screens.show("screen-game");
@@ -2330,26 +2604,27 @@ class ArenaController {
     nextQuestion() {
         if (this.battleTimerInterval) clearInterval(this.battleTimerInterval);
 
-        // Mix equations randomly from 2 to 9
-        const factor1 = Math.floor(Math.random() * 8) + 2; // 2 to 9
-        const factor2 = Math.floor(Math.random() * 10) + 1; // 1 to 10
-        const result = factor1 * factor2;
-
-        this.battleCurrentEquation = { term1: factor1, term2: factor2, result: result };
-        document.getElementById("boss-equation").innerText = `${factor1} x ${factor2} = ?`;
+        // Pick a random level from 2 to 9
+        const randomLevel = Math.floor(Math.random() * 8) + 2; // 2 to 9
+        const db = LITERACY_DATABASE[randomLevel];
+        
+        // Pick a random stage 3 question
+        const qIdx = Math.floor(Math.random() * db.stage3.length);
+        const item = db.stage3[qIdx];
+        
+        this.battleCurrentEquation = {
+            term1: randomLevel,
+            term2: qIdx,
+            result: item.a
+        };
+        
+        document.getElementById("boss-equation").innerText = item.q;
 
         // Generate answers
         const answersGrid = document.getElementById("boss-answers-grid");
         answersGrid.innerHTML = "";
 
-        let options = [result];
-        while (options.length < 4) {
-            let offset = (Math.floor(Math.random() * 5) + 1) * (Math.random() < 0.5 ? 1 : -1);
-            let wrongAns = result + offset;
-            if (wrongAns > 0 && !options.includes(wrongAns)) {
-                options.push(wrongAns);
-            }
-        }
+        let options = [...item.options];
         options.sort(() => Math.random() - 0.5);
 
         options.forEach(opt => {
@@ -2388,6 +2663,7 @@ class ArenaController {
 
     submitAnswer(selectedVal) {
         clearInterval(this.battleTimerInterval);
+        speakText(selectedVal);
         const correctVal = this.battleCurrentEquation.result;
         
         const btns = document.querySelectorAll("#boss-answers-grid .btn-answer");
@@ -2430,7 +2706,7 @@ class ArenaController {
             const bossWrapper = document.getElementById("battle-boss-avatar");
             bossWrapper.classList.add("attacking");
 
-            document.getElementById("boss-dialogue-bubble").innerText = `"Erro fatal! Cuidado com a tabuada do ${this.battleCurrentEquation.term1}!"`;
+            document.getElementById("boss-dialogue-bubble").innerText = `"Erro! Cuidado com as perguntas do ${KINGDOMS[this.battleCurrentEquation.term1].name}!"`;
 
             setTimeout(() => {
                 heroWrapper.classList.add("hit");
@@ -2484,8 +2760,13 @@ class ArenaController {
     showTip(onClose) {
         const modal = document.getElementById("hint-modal");
         const text = document.getElementById("hint-text");
-        text.innerHTML = getPedagogicalHint(this.battleCurrentEquation.term1, this.battleCurrentEquation.term2);
+        const hintHTML = getPedagogicalHint(this.battleCurrentEquation.term1, this.battleCurrentEquation.term2, 3);
+        text.innerHTML = hintHTML;
         modal.classList.add("active");
+
+        // Clean HTML tags and speak the hint aloud
+        const cleanHint = hintHTML.replace(/<[^>]*>/g, "");
+        speakText(cleanHint);
 
         const closeBtn = document.getElementById("btn-close-hint");
         const handler = () => {
