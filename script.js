@@ -2805,7 +2805,6 @@ class ArenaController {
         
         // Direct to final certificate screen
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
-        document.getElementById("cert-child-signature").innerText = State.data.playerName;
         renderHeroIdentity("cert-watermark");
         renderHeroIdentity("cert-hero-portrait");
         Screens.show("screen-certificate");
@@ -3068,7 +3067,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const openCertificateScreen = () => {
         AudioPlayer.playClick();
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
-        document.getElementById("cert-child-signature").innerText = State.data.playerName;
         renderHeroIdentity("cert-watermark");
         renderHeroIdentity("cert-hero-portrait");
         Screens.show("screen-certificate");

@@ -2469,6 +2469,11 @@ body {
     object-fit: cover;
 }
 
+.sign-space-blank {
+    height: 35px;
+    margin-bottom: 2px;
+}
+
 .sign-written {
     font-family: 'Caveat', cursive;
     font-size: 2.2rem;
@@ -3502,6 +3507,11 @@ body {
     .cert-sign p {
         font-size: 1.1rem !important;
         color: #718096 !important;
+    }
+
+    .sign-space-blank {
+        height: 10mm !important;
+        margin-bottom: 1mm !important;
     }
 
     .sign-written {
