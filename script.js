@@ -3017,6 +3017,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    document.getElementById("btn-settings-cheat-cert").addEventListener("click", () => {
+        AudioPlayer.playClick();
+        
+        // Unlock completion state
+        State.data.completedAll = true;
+        State.data.playerName = State.data.playerName || "Aventureiro";
+        State.data.characterSelected = State.data.characterSelected || "astronauta";
+        [2,3,4,5,6,7,8,9].forEach(l => {
+            if (!State.data.unlockedLevels.includes(l)) {
+                State.data.unlockedLevels.push(l);
+            }
+            State.data.stars[l] = State.data.stars[l] || 3;
+        });
+        State.save();
+        
+        // Refresh screens
+        GameController.renderStartScreen();
+        GameController.renderMapScreen();
+        
+        // Render and show certificate
+        document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
+        renderHeroIdentity("cert-watermark");
+        renderHeroIdentity("cert-hero-portrait");
+        Screens.show("screen-certificate");
+    });
+
     document.getElementById("btn-settings-close").addEventListener("click", () => {
         Screens.show(State.data.characterSelected ? "screen-map" : "screen-start");
     });
