@@ -2514,14 +2514,14 @@ body {
 .cert-stamp-img {
     position: absolute;
     top: 25px;
-    left: 35px;
+    right: 35px;
     width: 110px;
     height: 110px;
     object-fit: contain;
     pointer-events: none;
     z-index: 3;
     opacity: 0.95;
-    transform: rotate(-5deg);
+    transform: rotate(5deg);
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
 }
 
@@ -3570,14 +3570,14 @@ body {
     .cert-stamp-img {
         position: absolute !important;
         top: 6mm !important;
-        left: 8mm !important;
+        right: 8mm !important;
         width: 30mm !important;
         height: 30mm !important;
         object-fit: contain !important;
         pointer-events: none !important;
         z-index: 3 !important;
         opacity: 0.95 !important;
-        transform: rotate(-5deg) !important;
+        transform: rotate(5deg) !important;
         visibility: visible !important;
     }
 
