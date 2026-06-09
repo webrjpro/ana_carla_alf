@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Carlos Antonio de Oliveira Piquet">
+    <meta name="developer" content="Carlos Antonio de Oliveira Piquet - carlospiquet.projetos@gmail.com">
+    <title>Tabuada Quest: O Reino dos Números</title>
+    <!-- Google Fonts for friendly, playful rounded typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        
+        <!-- ================= TELA INICIAL ================= -->
+        <section id="screen-start" class="screen active">
+            <div class="stars-overlay"></div>
+            <div class="start-landscape" aria-hidden="true">
+                <span class="cloud cloud-one"></span>
+                <span class="cloud cloud-two"></span>
+                <span class="hill hill-back"></span>
+                <span class="hill hill-front"></span>
+                <span class="castle-silhouette">🏰</span>
+            </div>
+
+            <div class="start-layout">
+                <div class="logo-area">
+                    <div class="logo-badge">Aventura Matemática</div>
+                    <h1 class="game-title">Tabuada Quest</h1>
+                    <h2 class="game-subtitle">O Reino dos Números</h2>
+                    <p class="start-story">Liberte 8 reinos, recupere tesouros e derrote guardiões usando multiplicação.</p>
+                    
+                    <div class="start-quest-board">
+                        <div class="quest-board-item">
+                            <span class="quest-board-icon">🗺️</span>
+                            <span>Mapa de Reinos</span>
+                        </div>
+                        <div class="quest-board-item">
+                            <span class="quest-board-icon">⭐</span>
+                            <span id="start-stars-summary">0/24 estrelas</span>
+                        </div>
+                        <div class="quest-board-item">
+                            <span class="quest-board-icon">🎁</span>
+                            <span>Itens para o herói</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="start-action-panel">
+                    <div class="character-preview-start" id="start-char-preview">
+                        <!-- Dynamic floating avatar representing current profile -->
+                    </div>
+
+                    <div class="start-next-mission">
+                        <span class="mission-kicker">Próxima missão</span>
+                        <strong id="start-next-mission">Reino do Dobro</strong>
+                        <small id="start-next-mission-detail">Tabuada do 2 espera por você.</small>
+                    </div>
+
+                    <div class="menu-buttons">
+                        <button id="btn-play" class="btn btn-primary btn-large">
+                            <span class="icon">🎮</span> Jogar
+                        </button>
+                        <button id="btn-continue" class="btn btn-secondary btn-large" disabled>
+                            <span class="icon">💾</span> Continuar Aventura
+                        </button>
+                        <button id="btn-achievements" class="btn btn-info">
+                            <span class="icon">🏆</span> Conquistas & Herói
+                        </button>
+                        <button id="btn-settings" class="btn btn-small btn-muted">
+                            <span class="icon">⚙️</span> Configurações
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TELA SELEÇÃO DE PERSONAGEM ================= -->
+        <section id="screen-character" class="screen">
+            <h2 class="screen-title">Crie seu Herói!</h2>
+            <p class="screen-desc">Coloque o nome da criança, adicione uma foto e escolha um companheiro de jornada.</p>
+            
+            <div class="name-input-wrapper">
+                <label for="player-name">Nome da Criança:</label>
+                <input type="text" id="player-name" maxlength="15" placeholder="Digite seu nome..." value="Aventureiro">
+            </div>
+
+            <div class="photo-profile-panel">
+                <div class="photo-preview-frame" id="child-photo-preview">
+                    <span class="photo-placeholder-icon">📷</span>
+                    <span>Foto do Herói</span>
+                </div>
+                <div class="photo-actions">
+                    <input type="file" id="child-photo-input" accept="image/*">
+                    <button id="btn-child-photo" class="btn btn-secondary btn-small" type="button">Adicionar Foto</button>
+                    <button id="btn-remove-child-photo" class="btn btn-muted btn-small" type="button">Remover</button>
+                </div>
+            </div>
+
+            <h3 class="companion-section-title">Escolha 1 companheiro</h3>
+
+            <div class="character-grid companion-grid">
+                <div class="char-card" data-char="dragao">
+                    <div class="char-avatar-container" id="avatar-dragao-svg">
+                        <!-- Imagem Dragão -->
+                    </div>
+                    <h3>Draco, o Dragão</h3>
+                    <p>Leal, mágico e sempre pronto para proteger o herói.</p>
+                </div>
+
+                <div class="char-card" data-char="cachorro">
+                    <div class="char-avatar-container" id="avatar-cachorro-svg">
+                        <!-- Imagem Cachorro -->
+                    </div>
+                    <h3>Toby, o Cachorro</h3>
+                    <p>Animado, corajoso e ótimo para achar caminhos secretos.</p>
+                </div>
+
+                <div class="char-card" data-char="robo">
+                    <div class="char-avatar-container" id="avatar-robo-svg">
+                        <!-- Imagem Robô -->
+                    </div>
+                    <h3>Roby, o Robô</h3>
+                    <p>Inteligente, curioso e cheio de energia mágica.</p>
+                </div>
+            </div>
+
+            <div class="navigation-actions">
+                <button id="btn-char-back" class="btn btn-secondary">Voltar</button>
+                <button id="btn-char-confirm" class="btn btn-primary" disabled>Começar Jornada! 🚀</button>
+            </div>
+        </section>
+
+        <!-- ================= TELA DO MAPA ================= -->
+        <section id="screen-map" class="screen">
+            <div class="hud">
+                <div class="hud-player">
+                    <div class="hud-avatar" id="map-avatar-preview"></div>
+                    <div>
+                        <span class="hud-name" id="hud-player-name">Nome</span>
+                        <span class="hud-title" id="hud-player-title">Iniciante</span>
+                    </div>
+                </div>
+                <div class="hud-stats">
+                    <div class="stat-item"><span class="icon">🪙</span> <span id="hud-coins">0</span></div>
+                    <div class="stat-item"><span class="icon">⭐</span> <span id="hud-stars">0</span>/24</div>
+                </div>
+                <div class="hud-actions">
+                    <button id="btn-map-achievements" class="btn-icon-hud" title="Conquistas">🏆</button>
+                    <button id="btn-map-settings" class="btn-icon-hud" title="Configurações">⚙️</button>
+                    <button id="btn-map-back" class="btn-icon-hud" title="Menu Inicial">🚪</button>
+                </div>
+            </div>
+
+            <h2 class="map-title">O Reino dos Números</h2>
+            <p class="map-subtitle">Escolha um reino para desafiar a tabuada!</p>
+
+            <div class="map-questbar">
+                <div class="map-quest-main">
+                    <span class="mission-kicker">Agora</span>
+                    <strong id="map-next-mission">Reino do Dobro</strong>
+                    <small id="map-next-reward">Vença para ganhar a Espada de Luz.</small>
+                </div>
+                <div class="map-quest-progress">
+                    <span id="map-progress-label">0 de 8 reinos libertos</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="map-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <svg class="map-path-svg" id="map-path-lines"></svg>
+                <div class="map-nodes">
+                    <!-- Reino do 2 -->
+                    <div class="map-node unlocked" data-level="2" id="node-2">
+                        <div class="node-icon">🌲</div>
+                        <div class="node-info">
+                            <span class="node-name">Reino do Dobro</span>
+                            <span class="node-tabuada">Tabuada do 2</span>
+                        </div>
+                        <div class="node-stars">⭐⭐⭐</div>
+                    </div>
+                    <!-- Reino do 3 -->
+                    <div class="map-node locked" data-level="3" id="node-3">
+                        <div class="node-icon">💎</div>
+                        <div class="node-info">
+                            <span class="node-name">Reino dos Triplos</span>
+                            <span class="node-tabuada">Tabuada do 3</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <!-- Fortaleza do 4 -->
+                    <div class="map-node locked" data-level="4" id="node-4">
+                        <div class="node-icon">🏰</div>
+                        <div class="node-info">
+                            <span class="node-name">Fortaleza do 4</span>
+                            <span class="node-tabuada">Tabuada do 4</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <!-- Ilha do 5 -->
+                    <div class="map-node locked" data-level="5" id="node-5">
+                        <div class="node-icon">🏴‍☠️</div>
+                        <div class="node-info">
+                            <span class="node-name">Ilha do 5</span>
+                            <span class="node-tabuada">Tabuada do 5</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <!-- Caverna do 6 -->
+                    <div class="map-node locked" data-level="6" id="node-6">
+                        <div class="node-icon">🌋</div>
+                        <div class="node-info">
+                            <span class="node-name">Caverna do 6</span>
+                            <span class="node-tabuada">Tabuada do 6</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <!-- Torre do 7 -->
+                    <div class="map-node locked" data-level="7" id="node-7">
+                        <div class="node-icon">⚡</div>
+                        <div class="node-info">
+                            <span class="node-name">Torre do 7</span>
+                            <span class="node-tabuada">Tabuada do 7</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <!-- Labirinto do 8 -->
+                    <div class="map-node locked" data-level="8" id="node-8">
+                        <div class="node-icon">🌀</div>
+                        <div class="node-info">
+                            <span class="node-name">Labirinto do 8</span>
+                            <span class="node-tabuada">Tabuada do 8</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <!-- Castelo Final -->
+                    <div class="map-node locked" data-level="9" id="node-9">
+                        <div class="node-icon">👑</div>
+                        <div class="node-info">
+                            <span class="node-name">Castelo Final</span>
+                            <span class="node-tabuada">Tabuada do 9</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    
+                    <!-- Arena dos Mestres (Modo Final) -->
+                    <div class="map-node locked special-node" id="node-arena">
+                        <div class="node-icon">⚔️</div>
+                        <div class="node-info">
+                            <span class="node-name">Arena dos Mestres</span>
+                            <span class="node-tabuada">Desafio Final Misturado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-footer">
+                <button id="btn-map-to-char" class="btn btn-secondary">Alterar Herói</button>
+            </div>
+        </section>
+
+        <!-- ================= TELA DO JOGO (FASE) ================= -->
+        <section id="screen-game" class="screen">
+            <div class="game-hud">
+                <div class="game-hud-left">
+                    <button id="btn-game-exit" class="btn btn-back-hud" title="Voltar ao Mapa">↩ Mapa</button>
+                    <div class="game-reino-title">
+                        <span id="game-reino-icon">🌲</span>
+                        <h3 id="game-reino-name">Reino do Dobro</h3>
+                    </div>
+                </div>
+                
+                <div class="stage-indicator">
+                    <div class="stage-dot active" id="dot-stage-1" title="Etapa 1: Encaixe Rápido"><span>1</span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage-dot" id="dot-stage-2" title="Etapa 2: Quebra-Cabeça"><span>2</span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage-dot" id="dot-stage-3" title="Etapa 3: Chefe do Reino"><span>3</span></div>
+                </div>
+
+                <div class="game-hud-right">
+                    <button id="btn-toggle-sound" class="btn-sound-hud" title="Alternar Som">🔊 Som On</button>
+                    <div class="game-coins-container">🪙 <span id="game-coins">0</span></div>
+                </div>
+            </div>
+
+            <div class="game-mission-strip">
+                <div class="game-mission-copy">
+                    <span class="mission-kicker" id="stage-kicker">Etapa 1 de 3</span>
+                    <strong id="stage-mission-text">Abra o portal combinando contas e resultados.</strong>
+                </div>
+                <div class="game-mission-progress">
+                    <span id="stage-progress-label">0/6 pares</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="stage-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 1: ENCAIXE RÁPIDO -->
+            <div id="game-stage-1" class="game-stage active">
+                <div class="stage-header">
+                    <h4>Etapa 1: Encaixe Rápido</h4>
+                    <p>Leve cada conta ao portal do resultado correto.</p>
+                </div>
+                
+                <div class="match-container">
+                    <div class="match-column equations" id="stage1-equations">
+                        <!-- Dynamic Equation Items -->
+                    </div>
+                    <div class="match-column answers" id="stage1-answers">
+                        <!-- Dynamic Answer Items -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 2: QUEBRA-CABEÇA DA IMAGEM -->
+            <div id="game-stage-2" class="game-stage">
+                <div class="stage-header">
+                    <h4>Etapa 2: Quebra-Cabeça da Imagem</h4>
+                    <p>Recupere as peças certas para revelar o monumento do reino.</p>
+                </div>
+
+                <div class="puzzle-layout">
+                    <!-- Left pool of equation puzzle pieces -->
+                    <div class="puzzle-pieces-pool" id="puzzle-pieces-pool">
+                        <!-- Equation pieces to drag -->
+                    </div>
+                    
+                    <!-- Center Board grid where pieces are dropped -->
+                    <div class="puzzle-board-wrapper">
+                        <div class="puzzle-board" id="puzzle-board">
+                            <!-- Answer tiles where items are dropped -->
+                        </div>
+                        <div class="puzzle-completed-overlay" id="puzzle-complete-banner">
+                            <span class="congrats-text">Quebra-cabeça Restaurado! 🎉</span>
+                            <button id="btn-puzzle-next" class="btn btn-primary">Ir para o Chefe! ⚔️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 3: DESAFIO DO CHEFE -->
+            <div id="game-stage-3" class="game-stage">
+                <div class="stage-header">
+                    <h4>Etapa 3: Batalha do Chefe!</h4>
+                    <p>Escolha o número que transforma a conta em ataque.</p>
+                </div>
+
+                <div class="boss-arena">
+                    <!-- Left: Player Character & Health -->
+                    <div class="arena-character-side">
+                        <div class="player-hud-battle">
+                            <div class="player-hearts" id="player-hearts">
+                                <span>❤️</span><span>❤️</span><span>❤️</span>
+                            </div>
+                            <span class="player-battle-name" id="battle-player-name">Herói</span>
+                        </div>
+                        <div class="battle-avatar-wrapper" id="battle-hero-avatar">
+                            <!-- Selected Character SVG rendering equipped gear -->
+                        </div>
+                    </div>
+
+                    <!-- Middle: Math Attack Card & Timer -->
+                    <div class="arena-center-side">
+                        <div class="boss-dialogue" id="boss-dialogue-bubble">"Mostre-me do que é capaz!"</div>
+                        
+                        <div class="boss-attack-card" id="boss-attack-card">
+                            <div class="boss-equation" id="boss-equation">4 x 6 = ?</div>
+                            <div class="boss-timer-bar-container">
+                                <div class="boss-timer-bar" id="boss-timer-fill"></div>
+                            </div>
+                        </div>
+
+                        <div class="boss-answers-grid" id="boss-answers-grid">
+                            <!-- Multiple choice buttons -->
+                            <button class="btn btn-answer">12</button>
+                            <button class="btn btn-answer">24</button>
+                            <button class="btn btn-answer">18</button>
+                            <button class="btn btn-answer">30</button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Boss & Health -->
+                    <div class="arena-boss-side">
+                        <div class="boss-hud-battle">
+                            <div class="boss-health-bar-container">
+                                <div class="boss-health-bar" id="boss-health-fill" style="width: 100%;"></div>
+                            </div>
+                            <span class="boss-battle-name" id="battle-boss-name">Guardião do 4</span>
+                        </div>
+                        <div class="battle-avatar-wrapper" id="battle-boss-avatar">
+                            <!-- Boss SVG generated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pedagogical Hint Modal (shown on errors) -->
+            <div class="modal-overlay" id="hint-modal">
+                <div class="modal-content text-center">
+                    <div class="modal-header-icon">💡</div>
+                    <h3>Dica de Mestre!</h3>
+                    <p id="hint-text">2 x 4 é o mesmo que 2 + 2 + 2 + 2. O resultado é 8.</p>
+                    <button id="btn-close-hint" class="btn btn-primary">Entendi!</button>
+                </div>
+            </div>
+            
+            <!-- GameOver Retry Screen (no punishment) -->
+            <div class="modal-overlay" id="retry-modal">
+                <div class="modal-content text-center">
+                    <div class="modal-header-icon">🛡️</div>
+                    <h3>Quase lá!</h3>
+                    <p>O Guardião foi muito forte desta vez, mas não desista! Vamos tentar de novo?</p>
+                    <button id="btn-restart-boss" class="btn btn-primary">Tentar Novamente ⚔️</button>
+                    <button id="btn-retry-exit" class="btn btn-secondary">Voltar ao Mapa 🚪</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TELA DE VITÓRIA DA FASE ================= -->
+        <section id="screen-victory" class="screen">
+            <div class="confetti-canvas" id="victory-confetti"></div>
+            
+            <div class="victory-card">
+                <div class="victory-shine"></div>
+                <h2 class="victory-title">Vitória Régia! 🎉</h2>
+                <h3 class="victory-subtitle" id="victory-kingdom-text">Você dominou a tabuada do 2!</h3>
+                
+                <div class="victory-stars-display" id="victory-stars">
+                    <span class="star animate-star">⭐</span>
+                    <span class="star animate-star">⭐</span>
+                    <span class="star animate-star">⭐</span>
+                </div>
+                
+                <div class="rewards-earned">
+                    <div class="reward-box">
+                        <div class="reward-icon" id="victory-recompensa-icon">🏅</div>
+                        <div class="reward-name" id="victory-recompensa-name">Medalha do Dobro</div>
+                        <p class="reward-type">Insígnia Real</p>
+                    </div>
+                    <div class="reward-box">
+                        <div class="reward-icon" id="victory-item-icon">⚔️</div>
+                        <div class="reward-name" id="victory-item-name">Espada de Luz</div>
+                        <p class="reward-type">Equipamento para Herói</p>
+                    </div>
+                </div>
+
+                <div class="victory-stats">
+                    <div class="vic-stat">Moedas Ganhas: <span class="highlight">🪙 +<span id="victory-coins-added">50</span></span></div>
+                    <div class="vic-stat">Erros Cometidos: <span id="victory-errors-count">0</span></div>
+                </div>
+
+                <div class="victory-actions">
+                    <button id="btn-victory-map" class="btn btn-secondary">Ver Mapa</button>
+                    <button id="btn-victory-next" class="btn btn-primary">Próxima Fase! ➡️</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TELA DE CONQUISTAS E HERÓI ================= -->
+        <section id="screen-achievements" class="screen">
+            <h2 class="screen-title">Álbum de Conquistas & Herói</h2>
+            <p class="screen-desc">Equipe os itens desbloqueados e confira suas insígnias reais!</p>
+
+            <div class="achievements-layout">
+                <!-- Left: Hero Dress up customizer -->
+                <div class="achievements-section hero-customizer">
+                    <h3>Personalize seu Herói</h3>
+                    <div class="customizer-avatar-area" id="customizer-avatar-preview">
+                        <!-- SVG Display of selected avatar with items -->
+                    </div>
+                    <div class="customizer-player-info">
+                        <strong id="customizer-name">Aventureiro</strong>
+                        <span id="customizer-title" class="hud-title">Iniciante da Aritmética</span>
+                    </div>
+                    
+                    <div class="equipped-gear-list">
+                        <h4>Itens Equipados:</h4>
+                        <div class="gear-slots">
+                            <div class="gear-slot" data-slot="head" title="Elmo/Coroa"><span class="slot-icon">🪖</span><span id="slot-head-name">Nenhum</span></div>
+                            <div class="gear-slot" data-slot="back" title="Capa/Mochila"><span class="slot-icon">🧥</span><span id="slot-back-name">Nenhum</span></div>
+                            <div class="gear-slot" data-slot="hand" title="Espada/Escudo"><span class="slot-icon">⚔️</span><span id="slot-hand-name">Nenhum</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Tabs for Medals and Accessories -->
+                <div class="achievements-section collections">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" id="tab-btn-medals">Medalhas do Reino</button>
+                        <button class="tab-btn" id="tab-btn-items">Equipamentos</button>
+                    </div>
+
+                    <!-- Tab: Medals -->
+                    <div class="tab-content active" id="tab-content-medals">
+                        <div class="medals-grid" id="medals-grid-container">
+                            <!-- 8 medals populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Tab: Items/Accessories -->
+                    <div class="tab-content" id="tab-content-items">
+                        <div class="items-grid" id="items-grid-container">
+                            <!-- Unlocked equipment accessories shown with Equip buttons -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-actions">
+                <button id="btn-achievements-back" class="btn btn-secondary">Voltar ao Mapa</button>
+            </div>
+        </section>
+
+        <!-- ================= TELA DE CONFIGURAÇÕES ================= -->
+        <section id="screen-settings" class="screen">
+            <div class="modal-content settings-card">
+                <h2>Configurações do Jogo</h2>
+                
+                <div class="settings-group">
+                    <label>Efeitos Sonoros & Vozes Synthesizer:</label>
+                    <div class="toggle-control">
+                        <button id="btn-settings-sound-toggle" class="btn btn-primary">Som: Ativado 🔊</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>Informações do Perfil:</label>
+                    <div class="profile-reset-wrapper">
+                        <p>Deseja recomeçar a sua jornada matemática do zero?</p>
+                        <button id="btn-settings-reset" class="btn btn-danger">Zerar Todo o Progresso ⚠️</button>
+                    </div>
+                </div>
+
+                <div class="settings-group desc-text">
+                    <p>Desenvolvido com carinho para o aprendizado saudável das crianças. Ao completar a aventura, você receberá o Certificado de Mestre Supremo da Tabuada!</p>
+                </div>
+
+                <div class="settings-group developer-credit">
+                    <label>Desenvolvedor:</label>
+                    <p>Carlos Antonio de Oliveira Piquet<br><span>carlospiquet.projetos@gmail.com</span></p>
+                </div>
+
+                <div class="navigation-actions">
+                    <button id="btn-settings-close" class="btn btn-secondary">Fechar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TELA CERTIFICADO FINAL ================= -->
+        <section id="screen-certificate" class="screen">
+            <div class="certificate-container" id="certificate-print-area">
+                <div class="cert-border">
+                    <div class="cert-inner-border">
+                        <div class="cert-header">
+                            <span class="cert-emblem">🏆</span>
+                            <h2>Reino dos Números</h2>
+                            <p class="cert-subtitle">Ministério da Aventura Matemática</p>
+                        </div>
+                        
+                        <div class="cert-body">
+                            <h1>CERTIFICADO</h1>
+                            <p class="cert-intro">Certificamos com honras reais que o intrépido aventureiro(a)</p>
+                            <h2 class="cert-player-name" id="cert-display-name">NOME DO JOGADOR</h2>
+                            <p class="cert-declaration">
+                                Concluiu com sucesso a grande jornada e superou todos os desafios, derrotando os Guardiões das tabuadas de 2 até 9 e completando os quebra-cabeças dos reinos.
+                            </p>
+                            <p class="cert-title-granted">Por seus feitos, recebe o título oficial de:</p>
+                            <div class="cert-granted-badge">Mestre Supremo da Tabuada 👑</div>
+                        </div>
+
+                        <div class="cert-footer">
+                            <div class="cert-sign">
+                                <div class="sign-line"></div>
+                                <p>Guardião da Aritmética</p>
+                            </div>
+                            <div class="cert-sign">
+                                <div class="sign-line"></div>
+                                <p>Rei dos Números</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certificate-actions">
+                <button id="btn-cert-print" class="btn btn-primary btn-large">📥 Salvar / Imprimir PDF</button>
+                <button id="btn-cert-restart" class="btn btn-secondary">Jogar Novamente 🔄</button>
+                <button id="btn-cert-map" class="btn btn-info">Ver Álbum & Herói</button>
+            </div>
+        </section>
+
+    </div>
+    
+    <!-- Audio synthesizer and main game engine scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
