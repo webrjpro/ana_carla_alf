@@ -1061,6 +1061,28 @@ function renderHeroIdentity(targetElementId, fallbackToCharacter = true) {
     }
 }
 
+function renderWatermark() {
+    const container = document.getElementById("cert-watermark");
+    if (!container) return;
+
+    container.innerHTML = `<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer circle with dots -->
+        <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(45, 100%, 35%)" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <!-- Inner circle -->
+        <circle cx="50" cy="50" r="40" fill="none" stroke="hsl(45, 100%, 35%)" stroke-width="1"/>
+        <!-- Open Book -->
+        <path d="M 30,55 C 38,55 42,50 50,53 C 58,50 62,55 70,55 L 70,35 C 62,35 58,30 50,33 C 42,30 38,35 30,35 Z" fill="none" stroke="hsl(45, 100%, 35%)" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Book spine line -->
+        <line x1="50" y1="33" x2="50" y2="53" stroke="hsl(45, 100%, 35%)" stroke-width="2"/>
+        <!-- Crown on top of book -->
+        <path d="M 38,30 L 40,22 L 45,26 L 50,18 L 55,26 L 60,22 L 62,30 Z" fill="none" stroke="hsl(45, 100%, 35%)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Faint Letter A inside book page left -->
+        <text x="38" y="47" font-family="'Fredoka', sans-serif" font-size="11" font-weight="bold" fill="hsl(45, 100%, 35%)" text-anchor="middle">A</text>
+        <!-- Faint Letter Z inside book page right -->
+        <text x="62" y="47" font-family="'Fredoka', sans-serif" font-size="11" font-weight="bold" fill="hsl(45, 100%, 35%)" text-anchor="middle">Z</text>
+    </svg>`;
+}
+
 function updateChildPhotoPreview() {
     const preview = document.getElementById("child-photo-preview");
     if (!preview) return;
@@ -1266,11 +1288,6 @@ const Screens = {
         document.getElementById("start-next-mission").innerText = progress.nextName;
         document.getElementById("start-next-mission-detail").innerText = progress.nextDetail;
 
-        // Toggle certificate shortcut button
-        const btnStartCert = document.getElementById("btn-start-certificate");
-        if (btnStartCert) {
-            btnStartCert.style.display = State.data.completedAll ? "block" : "none";
-        }
 
         if (State.data.characterSelected) {
             btnContinue.disabled = false;
@@ -2805,7 +2822,7 @@ class ArenaController {
         
         // Direct to final certificate screen
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
-        renderHeroIdentity("cert-watermark");
+        renderWatermark();
         renderHeroIdentity("cert-hero-portrait");
         Screens.show("screen-certificate");
     }
@@ -3017,9 +3034,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.getElementById("btn-settings-cheat-cert").addEventListener("click", () => {
-        AudioPlayer.playClick();
-        
+    const DEV_CERTIFICATE_PASSWORD = "415263";
+    const devPasswordModal = document.getElementById("dev-password-modal");
+    const devPasswordInput = document.getElementById("dev-cert-password");
+    const devPasswordError = document.getElementById("dev-password-error");
+    const btnDevPasswordConfirm = document.getElementById("btn-dev-password-confirm");
+    const btnDevPasswordCancel = document.getElementById("btn-dev-password-cancel");
+
+    const showDevPasswordModal = () => {
+        if (!devPasswordModal || !devPasswordInput || !devPasswordError) return;
+
+        devPasswordInput.value = "";
+        devPasswordError.textContent = "";
+        devPasswordModal.classList.add("active");
+        devPasswordModal.setAttribute("aria-hidden", "false");
+
+        window.setTimeout(() => {
+            devPasswordInput.focus();
+        }, 50);
+    };
+
+    const hideDevPasswordModal = () => {
+        if (!devPasswordModal || !devPasswordInput || !devPasswordError) return;
+
+        devPasswordModal.classList.remove("active");
+        devPasswordModal.setAttribute("aria-hidden", "true");
+        devPasswordInput.value = "";
+        devPasswordError.textContent = "";
+    };
+
+    const unlockCertificatePreview = () => {
         // Unlock completion state
         State.data.completedAll = true;
         State.data.playerName = State.data.playerName || "Aventureiro";
@@ -3033,15 +3077,68 @@ document.addEventListener("DOMContentLoaded", () => {
         State.save();
         
         // Refresh screens
-        GameController.renderStartScreen();
-        GameController.renderMapScreen();
+        Screens.renderStartScreen();
+        Screens.renderMapScreen();
         
         // Render and show certificate
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
-        renderHeroIdentity("cert-watermark");
+        renderWatermark();
         renderHeroIdentity("cert-hero-portrait");
         Screens.show("screen-certificate");
+    };
+
+    const confirmDevPassword = () => {
+        if (!devPasswordInput || !devPasswordError) return;
+
+        if (devPasswordInput.value.trim() !== DEV_CERTIFICATE_PASSWORD) {
+            devPasswordInput.value = "";
+            devPasswordError.textContent = "Senha incorreta. Digite a senha correta para liberar o certificado.";
+            devPasswordInput.focus();
+            AudioPlayer.playError();
+            return;
+        }
+
+        hideDevPasswordModal();
+        unlockCertificatePreview();
+    };
+
+    document.getElementById("btn-settings-cheat-cert").addEventListener("click", () => {
+        AudioPlayer.playClick();
+        showDevPasswordModal();
     });
+
+    if (btnDevPasswordConfirm) {
+        btnDevPasswordConfirm.addEventListener("click", confirmDevPassword);
+    }
+
+    if (btnDevPasswordCancel) {
+        btnDevPasswordCancel.addEventListener("click", hideDevPasswordModal);
+    }
+
+    if (devPasswordModal) {
+        devPasswordModal.addEventListener("click", (event) => {
+            if (event.target === devPasswordModal) {
+                hideDevPasswordModal();
+            }
+        });
+    }
+
+    if (devPasswordInput) {
+        devPasswordInput.addEventListener("input", () => {
+            if (devPasswordError) {
+                devPasswordError.textContent = "";
+            }
+        });
+
+        devPasswordInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                confirmDevPassword();
+            } else if (event.key === "Escape") {
+                hideDevPasswordModal();
+            }
+        });
+    }
 
     document.getElementById("btn-settings-close").addEventListener("click", () => {
         Screens.show(State.data.characterSelected ? "screen-map" : "screen-start");
@@ -3089,19 +3186,14 @@ document.addEventListener("DOMContentLoaded", () => {
         AudioPlayer.playClick();
     });
 
-    // Certificate screen actions
     const openCertificateScreen = () => {
         AudioPlayer.playClick();
         document.getElementById("cert-display-name").innerText = State.data.playerName.toUpperCase();
-        renderHeroIdentity("cert-watermark");
+        renderWatermark();
         renderHeroIdentity("cert-hero-portrait");
         Screens.show("screen-certificate");
     };
 
-    const btnStartCert = document.getElementById("btn-start-certificate");
-    if (btnStartCert) {
-        btnStartCert.addEventListener("click", openCertificateScreen);
-    }
 
     const btnMapCert = document.getElementById("btn-map-certificate");
     if (btnMapCert) {
