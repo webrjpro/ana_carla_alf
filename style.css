@@ -3349,10 +3349,10 @@ body {
         top: 50% !important;
         transform: translate(-50%, -50%) !important;
         width: 262mm !important;
-        height: 182mm !important;
+        height: 194mm !important;
         box-sizing: border-box !important;
         margin: 0 !important;
-        padding: 12mm !important;
+        padding: 8mm !important;
         background: #fff !important;
         box-shadow: none !important;
         border-radius: var(--border-radius-lg) !important;
@@ -3364,10 +3364,13 @@ body {
 
     .cert-border {
         border: 8px double hsl(45, 100%, 40%) !important;
-        padding: 4mm !important;
+        padding: 3mm !important;
         border-radius: var(--border-radius-md) !important;
         height: 100% !important;
         box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
         display: flex !important;
         flex-direction: column !important;
     }
@@ -3467,48 +3470,48 @@ body {
     }
 
     .cert-body h1 {
-        font-size: 4.2rem !important;
-        margin-bottom: 8px !important;
+        font-size: 3.4rem !important;
+        margin-bottom: 6px !important;
         color: hsl(45, 100%, 25%) !important;
     }
 
     .cert-intro {
-        font-size: 1.25rem !important;
+        font-size: 1.05rem !important;
         color: #4a5568 !important;
     }
 
     .cert-player-name {
-        font-size: 3.2rem !important;
-        margin: 15px 0 !important;
-        padding: 5px 40px !important;
-        border-bottom: 4px solid hsl(45, 100%, 35%) !important;
+        font-size: 2.5rem !important;
+        margin: 8px 0 !important;
+        padding: 3px 25px !important;
+        border-bottom: 3px solid hsl(45, 100%, 35%) !important;
         color: var(--color-primary) !important;
     }
 
     .cert-declaration {
-        font-size: 1.2rem !important;
-        line-height: 1.5 !important;
-        max-width: 680px !important;
-        margin: 0 auto 15px auto !important;
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+        max-width: 600px !important;
+        margin: 0 auto 8px auto !important;
         color: #4a5568 !important;
     }
 
     .cert-title-granted {
-        font-size: 1.1rem !important;
-        margin-bottom: 5px !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 4px !important;
         color: #718096 !important;
     }
 
     .cert-granted-badge {
-        font-size: 1.8rem !important;
-        padding: 10px 40px !important;
+        font-size: 1.4rem !important;
+        padding: 6px 30px !important;
         background: #fffdf5 !important;
         border: 3px solid hsl(45, 100%, 35%) !important;
         color: hsl(45, 100%, 20%) !important;
         box-shadow: none !important;
         border-radius: 50px !important;
         display: inline-block !important;
-        margin-top: 8px !important;
+        margin-top: 5px !important;
     }
 
     .cert-footer {
@@ -3519,30 +3522,30 @@ body {
     }
 
     .cert-sign {
-        width: 220px !important;
+        width: 200px !important;
     }
 
     .sign-line {
-        border-top: 2px solid #718096 !important;
-        margin-bottom: 8px !important;
+        border-top: 1.5px solid #718096 !important;
+        margin-bottom: 6px !important;
     }
 
     .cert-sign p {
-        font-size: 1.1rem !important;
+        font-size: 0.95rem !important;
         color: #718096 !important;
     }
 
     .sign-space-blank {
-        height: 10mm !important;
+        height: 7mm !important;
         margin-bottom: 1mm !important;
     }
 
     .sign-written {
         font-family: 'Caveat', cursive !important;
-        font-size: 2.4rem !important;
+        font-size: 2rem !important;
         color: hsl(220, 60%, 35%) !important;
-        height: 10mm !important;
-        line-height: 10mm !important;
+        height: 7mm !important;
+        line-height: 7mm !important;
         margin-bottom: 1mm !important;
         font-weight: bold !important;
         transform: rotate(-3deg) !important;
@@ -3553,7 +3556,7 @@ body {
 
     .royal-written {
         color: hsl(45, 100%, 25%) !important;
-        font-size: 2.7rem !important;
+        font-size: 2.2rem !important;
         transform: rotate(-1deg) !important;
         visibility: visible !important;
     }
